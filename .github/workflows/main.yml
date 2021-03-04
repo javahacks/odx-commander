@@ -15,13 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+    - uses: actions/download-artifact@v2
       with:
-        java-version: 1.8    
-    - name: Build Odx Server      
-      run: mvn -B compile --file pom.xml    
+          name: ODX Language Server
+          path: ./resources/
+    - uses: actions/checkout@v2  
     - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
