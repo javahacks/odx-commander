@@ -39,7 +39,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: ODX Commander
-        path: vscode-extension/odx-commander-*.vsix
+        path: odx-commander-*.vsix
 
 
     
