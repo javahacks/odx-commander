@@ -1,0 +1,35 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: ODX Commander Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2  
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+    - name: Build Vscode Extension
+      working-directory: ./vscode-extension
+      run: |
+        npm install -g vsce
+        npm install   
+        vsce package
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ODX Commander
+        path: vscode-extension/odx-commander-*.vsix
+      
+      
+      
