@@ -18,14 +18,14 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
           name: ODX Language Server
-          path: vscode-extension/resources/
+          path: ./resources/
     - uses: actions/checkout@v2  
     - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
     - name: Build Vscode Extension
-      working-directory: ./vscode-extension
+      working-directory: .
       run: |
         npm install -g vsce
         npm install   
