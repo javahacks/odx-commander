@@ -1,0 +1,179 @@
+{
+	"name": "odx-commander",
+	"displayName": "ODX Commander",
+	"description": "Extension for Open Diagnostics eXchange documents",
+	"version": "0.1.0",
+	"publisher": "wgeck",	
+	"engines": {
+		"vscode": "^1.50.0"
+	},
+	"categories": [
+		"Visualization"
+	],
+	"icon": "resources/media/odx-commander.png",
+	"activationEvents": [
+		"onView:vehicle_info_spec",
+		"onView:flash",
+		"onView:comparam_spec",
+		"onView:comparam_subset",
+		"onView:function_dictionary_spec",
+		"onView:multiple_ecu_job_spec",
+		"onView:ecu_config",
+		"onView:protocols",
+		"onView:sharedData",
+		"onView:baseVariants",
+		"onView:ecuVariants",
+		"onView:functionalGroups",
+		"onCommand:odx.setOdxSource"
+	],
+	"main": "./out/extension/extension.js",
+	"contributes": {		
+		"views": {
+			"category-explorer": [
+				{
+					"id": "vehicle_info_spec",
+					"name": "Vehicle Informations",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "comparam_spec",
+					"name": "Comparams",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "comparam_subset",
+					"name": "Comparam Subsets",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "multiple_ecu_job_spec",
+					"name": "Ecu Jobs",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "ecu_config",
+					"name": "Ecu Config",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "function_dictionary_spec",
+					"name": "Function Dictionary",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "flash",
+					"name": "Flash Data",
+					"visibility": "collapsed"
+				}
+			],
+			"layer-explorer": [
+				{
+					"id": "protocols",
+					"name": "Protocols",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "functionalGroups",
+					"name": "Functional Groups",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "sharedData",
+					"name": "Shared Data",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "baseVariants",
+					"name": "Base Variants",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "ecuVariants",
+					"name": "ECU Variants",
+					"visibility": "collapsed"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "layer-explorer",
+					"title": "Diagnostic Layers",
+					"icon": "resources/media/layers.svg"
+				},
+				{
+					"id": "category-explorer",
+					"title": "Diagnostic Categories",
+					"icon": "resources/media/category.svg"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "odx.setOdxSource",
+				"title": "Set Path as active ODX Location"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "odx.setOdxSource",
+					"when": "explorerResourceIsFolder || resourceFilename =~ /\\.pdx$|\\.odx-?.*$/i",
+					"group": "2_workspace "
+				}
+			]
+		},
+		"configuration": {
+			"title": "ODX Commander",
+			"properties": {
+				"odx-server.activeIndexLocation": {
+					"type": "string",
+					"default": "",
+					"description": "The absolute path of your active ODX location.",
+					"scope": "application"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile ",
+		"compile": "tsc -p . ",
+		"lint": "eslint src --ext ts",
+		"prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+		"watch": "tsc -watch -p .",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/extension/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^12.11.7",
+		"@types/node-fetch": "^2.5.7",
+		"@types/vscode": "^1.50.0",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"@typescript-eslint/parser": "^4.1.1",
+		"css-loader": "^5.0.1",
+		"eslint": "^7.9.0",
+		"file-loader": "^6.2.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"style-loader": "^2.0.0",
+		"ts-loader": "^8.0.4",
+		"typescript": "^4.0.3",
+		"url-loader": "^4.1.1",
+		"vscode-test": "^1.4.0",
+		"webpack": "^4.44.2",
+		"webpack-cli": "^4.3.0",
+		"webpack-dev-server": "^3.11.0"
+	},
+	"dependencies": {
+		"fast-deep-equal": "^3.1.3",
+		"node-fetch": "^2.6.1",
+		"vscode-languageclient": "^6.1.3"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/javahacks/odx-extension"
+	},
+	"homepage": "https://github.com/javahacks/odx-extension/blob/main/vscode-extension/README.md"
+}
