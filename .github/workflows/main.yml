@@ -25,7 +25,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }} # GITHUB_TOKEN is the default env for the password
     - name: Build Odx Server      
-      run: mvn -B compile --file pom.xml    
+      run: mvn -B compile --file pom.xml -s $GITHUB_WORKSPACE/settings.xml   
     - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
