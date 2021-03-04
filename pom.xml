@@ -49,17 +49,12 @@
     </build>
 
     
-    <distributionManagement>
+    <repositories>
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
             <url>https://maven.pkg.github.com/javahacks/odx-extension</url>
-        </repository>
-        <snapshotRepository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/javahacks/odx-extension</url>
-        </snapshotRepository>
-    </distributionManagement>
+        </repository>       
+    </repositories>
 
 </project>
