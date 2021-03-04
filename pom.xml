@@ -56,5 +56,13 @@
             <url>https://maven.pkg.github.com/javahacks/odx-extension</url>
         </repository>       
     </repositories>
+	
+	 <servers>
+    <server>
+      <id>github</id>
+      <username>USERNAME</username>
+      <password>TOKEN</password>
+    </server>
+  </servers>
 
 </project>
