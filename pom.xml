@@ -22,42 +22,47 @@
 			<artifactId>odx-server</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.1.2</version>
-        <executions>
-          <execution>
-            <id>copy-dependencies</id>
-            <phase>package</phase>
-            <goals>
-              <goal>copy-dependencies</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${project.build.directory}/resources</outputDirectory>
-              <overWriteReleases>true</overWriteReleases>
-              <overWriteSnapshots>true</overWriteSnapshots>
-              <overWriteIfNewer>true</overWriteIfNewer>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
+	</dependencies>	
+	<build>	
+		<plugins>  
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-dependency-plugin</artifactId>
+			<version>3.1.2</version>
+			<executions>
+			  <execution>
+				<id>copy-dependencies</id>
+				<phase>package</phase>
+				<goals>
+				  <goal>copy-dependencies</goal>
+				</goals>
+				<configuration>
+				  <outputDirectory>${project.build.directory}/resources</outputDirectory>
+				  <overWriteReleases>true</overWriteReleases>
+				  <overWriteSnapshots>true</overWriteSnapshots>
+				  <overWriteIfNewer>true</overWriteIfNewer>
+				</configuration>
+			  </execution>
+			</executions>
+		  </plugin>
+		</plugins>
     </build>
 
     
-    <distributionManagement>
+    <repositories>
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
             <url>https://maven.pkg.github.com/javahacks/odx-extension</url>
-        </repository>
-        <snapshotRepository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/javahacks/odx-extension</url>
-        </snapshotRepository>
-    </distributionManagement>
+        </repository>       
+    </repositories>
+	
+	 <servers>
+    <server>
+      <id>github</id>
+      <username>USERNAME</username>
+      <password>TOKEN</password>
+    </server>
+  </servers>
 
 </project>
