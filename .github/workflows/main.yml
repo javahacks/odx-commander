@@ -24,7 +24,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
     - name: Build Odx Server      
       run: mvn org.apache.maven.plugins:maven-dependency-plugin:3.1.2:copy -DrepoUrl=https://maven.pkg.github.com/javahacks/odx-commander 
-           -Dartifact=com.javahacks:language-server:0.0.1-SNAPSHOT:jar 
+           -Dartifact=com.javahacks:odx-language-server:0.0.1-SNAPSHOT:jar 
            -DoutputDirectory=resources -Dmdep.stripVersion=true -s $GITHUB_WORKSPACE/settings.xml  
       env:
         GITHUB_TOKEN: ${{ github.token }} # GITHUB_TOKEN is the default env for the password
