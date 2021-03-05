@@ -68,7 +68,7 @@ export class OdxLspService {
     }
 
     private startLSP(context: vscode.ExtensionContext) {
-        const executablePath = context.asAbsolutePath(path.join('resources', 'language-server.jar'));
+        const executablePath = context.asAbsolutePath(path.join('resources', 'odx-language-server.jar'));
 
         let clientOptions: LanguageClientOptions = {
             documentSelector: [{ scheme: 'odx', language: 'xml' }],
