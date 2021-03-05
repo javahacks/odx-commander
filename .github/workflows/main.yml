@@ -23,7 +23,7 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} 
     - name: Copy Language Server    
-      run: mvn org.apache.maven.plugins:maven-dependency-plugin:3.1.2:copy -DrepoUrl=https://maven.pkg.github.com/javahacks/odx-commander 
+      run: mvn org.apache.maven.plugins:maven-dependency-plugin:3.1.2:copy -Durl=https://maven.pkg.github.com/javahacks/odx-commander 
            -Dartifact=com.javahacks:odx-language-server:0.0.1-SNAPSHOT:jar 
            -DoutputDirectory=resources -Dmdep.stripVersion=true -s $GITHUB_WORKSPACE/settings.xml  
       env:
