@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
 		  <groupId>com.javahacks</groupId>
-		  <artifactId>language-server</artifactId>
+		  <artifactId>odx-language-server</artifactId>
 		  <version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>	
