@@ -23,9 +23,7 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} 
     - name: Copy Language Server    
-      run: mvn org.apache.maven.plugins:maven-dependency-plugin:3.1.2:copy
-           -Dartifact=com.javahacks:odx-language-server:0.0.1-SNAPSHOT:jar 
-           -DoutputDirectory=resources -Dmdep.stripVersion=true -s $GITHUB_WORKSPACE/settings.xml  
+      run: mvn dependency:copy-dependencies -f .github/pom.xml
       env:
         GITHUB_TOKEN: ${{ github.token }} 
     - name: Set up Node.js
@@ -38,11 +36,11 @@ jobs:
         npm install -g vsce
         npm install   
         vsce package
-    - uses: actions/upload-artifact@v2
-      with:
-        name: ODX Commander
-        path: odx-commander-*.vsix
-
+   # - uses: actions/upload-artifact@v2
+   #   with:
+   #     name: ODX Commander
+   #     path: odx-commander-*.vsix
+#
 
     
     
