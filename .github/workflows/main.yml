@@ -36,10 +36,12 @@ jobs:
         npm install -g vsce
         npm install   
         vsce package
-   # - uses: actions/upload-artifact@v2
-   #   with:
-   #     name: ODX Commander
-   #     path: odx-commander-*.vsix
+      
+    - uses: actions/upload-artifact@v2
+      if: github.ref == 'refs/heads/main'
+      with:
+        name: ODX Commander
+        path: odx-commander-*.vsix
 #
 
     
