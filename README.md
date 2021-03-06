@@ -2,7 +2,7 @@
 
 ## Features
 
-Where [Total Commander](https://www.ghisler.com/deutsch.htm) helps to control and understand complex filesystems, ODX Commander is the tool of choice to navigate complex diagnostic datasets available in ODX format.
+Where [Total Commander](https://www.ghisler.com/deutsch.htm) allows easy navigation through your filesystems, ODX Commander helps to understand and navigate through complex diagnostic data structures available in ODX format.
 
 The extension brings two additional view groups into VS Code:
 One for diagnostic layers:
