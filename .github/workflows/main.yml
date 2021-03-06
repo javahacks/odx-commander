@@ -23,7 +23,7 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} 
     - name: Copy Language Server    
-      run: mvn dependency:copy-dependencies -f .github/pom.xml
+      run: mvn dependency:copy-dependencies -f .github/pom.xml -s $GITHUB_WORKSPACE/settings.xml  
       env:
         GITHUB_TOKEN: ${{ github.token }} 
     - name: Set up Node.js
