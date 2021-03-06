@@ -5,16 +5,11 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- used to copy required dependency before build -->
+	
     <groupId>com.javahacks</groupId>
     <version>0.0.1-SNAPSHOT</version>
     <artifactId>odx-commander</artifactId>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <lsp4j.version>0.10.0</lsp4j.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -31,7 +26,7 @@
 			<artifactId>maven-dependency-plugin</artifactId>
 			<version>3.1.2</version>				
 			<configuration>
-				<outputDirectory>./resources</outputDirectory>
+				<outputDirectory>../resources</outputDirectory>
 				<overWriteReleases>false</overWriteReleases>
 				<useBaseVersion>true</useBaseVersion>
 				<stripVersion>true</stripVersion>
