@@ -3,7 +3,7 @@
 	"displayName": "ODX Commander",
 	"description": "Extension for Open Diagnostics eXchange documents",
 	"version": "0.1.0",
-	"publisher": "wgeck",	
+	"publisher": "wgeck",
 	"engines": {
 		"vscode": "^1.50.0"
 	},
@@ -27,7 +27,7 @@
 		"onCommand:odx.setOdxSource"
 	],
 	"main": "./out/extension/extension.js",
-	"contributes": {		
+	"contributes": {
 		"views": {
 			"category-explorer": [
 				{
