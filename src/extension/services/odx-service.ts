@@ -22,11 +22,13 @@ export class OdxLspService {
     }
 
     public async sendConfigurationChanged() {
-        const value = vscode.workspace.getConfiguration().get("odx-server.activeIndexLocation", "");
-        vscode.Uri.parse(value);
-        await this.lspClient.onReady();
-        this.lspClient.sendRequest("workspace/didChangeConfiguration", {});
-        vscode.commands.executeCommand("odx.reloadData");
+        const indexLocation = vscode.workspace.getConfiguration().get("odx-server.activeIndexLocation") as string;
+        if(indexLocation){
+            vscode.Uri.parse(indexLocation);
+            await this.lspClient.onReady();
+            this.lspClient.sendNotification("workspace/didChangeConfiguration", {});
+            vscode.commands.executeCommand("odx.reloadData");
+        }
     }
 
     public async fetchServiceDetails(service: DiagService) {
