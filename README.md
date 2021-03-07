@@ -1,17 +1,29 @@
-# ODX Viewer
+# ODX Commander
 
 ## Features
 
-Where [Total Commander](https://www.ghisler.com/deutsch.htm) allows easy navigation through your filesystems, ODX Commander helps to understand and navigate through complex diagnostic data structures available in ODX format.
+ODX Commander is a VS-Code extension that allows the navigation through large diagnostic data sets in ODX format.
 
-The extension brings two additional view groups into VS Code:
-One for diagnostic layers:
 
 ![Diagnostic Layers](./help/layers.jpg)
 
-One for all the other ODX Categories:
+After installation there are two additional view containers on the left. One shows detailed information about all diagnostic layer containers and appropriate structure for
 
-![Diagnostic Categories](./help/categories.jpg)
+* Protocols
+* Functional Groups
+* Shared Data
+* Base Variants
+* ECU Variants
+
+the other one shows the structure of the remaining ODX categorries
+
+* Vehicle Information
+* Comparams
+* Comparam Subsets
+* ECU Config
+* Function Dictionaries
+* ECU Jobs
+* Flash Data
 
 ## Requirements
 
