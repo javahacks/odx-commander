@@ -68,27 +68,27 @@
 			],
 			"layer-explorer": [
 				{
-					"id": "protocols",
+					"id": "protocol",
 					"name": "Protocols",
 					"visibility": "collapsed"
 				},
 				{
-					"id": "functionalGroups",
+					"id": "functional_group",
 					"name": "Functional Groups",
 					"visibility": "collapsed"
 				},
 				{
-					"id": "sharedData",
+					"id": "shared_data",
 					"name": "Shared Data",
 					"visibility": "collapsed"
 				},
 				{
-					"id": "baseVariants",
+					"id": "base_variant",
 					"name": "Base Variants",
 					"visibility": "collapsed"
 				},
 				{
-					"id": "ecuVariants",
+					"id": "ecu_variant",
 					"name": "ECU Variants",
 					"visibility": "collapsed"
 				}
