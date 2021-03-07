@@ -2,7 +2,7 @@
 
 ## Features
 
-ODX Commander is a VS-Code extension that allows the navigation through large diagnostic data sets in ODX format.
+ODX Commander is a VS-Code extension that allows fast navigation through large diagnostic data sets in ODX format.
 
 
 ![Diagnostic Layers](./help/layers.jpg)
@@ -27,7 +27,7 @@ the other one shows the structure of the remaining ODX categorries
 
 ## Requirements
 
-Requires Java 8 or higher
+Java 8 or higher must be installed on your system.
 
 ## Known Issues
 
@@ -35,10 +35,11 @@ Unknown
 
 ## Release Notes
 
-- Readonly PDX support
-- Hyperlink support for all ODX-Links in XML editors
+- Support for packed (PDX) and unpacked ODX files
+- Hyperlink support for all ODX-Links in XML files
+- The editor shows simplified and formatted ODX documents (e.g. removes admin data, company data, oids ...)
 
-### 1.0.0
+### 0.1.0
 
 Initial release of ODX Viewer
 
