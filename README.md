@@ -2,7 +2,7 @@
 
 ## Features
 
-ODX Commander is a VS-Code extension that allows fast navigation through large diagnostic data sets in ODX format.
+ODX Commander is a VS-Code extension that allows fast navigation through large diagnostic data sets available in ODX format.
 
 
 ![Diagnostic Layers](./help/layers.jpg)
@@ -24,6 +24,14 @@ the other one shows the structure of the remaining ODX categorries
 * Function Dictionaries
 * ECU Jobs
 * Flash Data
+
+## Getting Started
+
+The most important step when using ODX commander is selecting an ODX data source. There are three options available:
+
+1. Open the folder that conatais the PDX file to use and 
+2. Open the folder that contains unpacked ODX files and 
+3. Set the configuration property in VS code
 
 ## Requirements
 
