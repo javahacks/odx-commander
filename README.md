@@ -2,20 +2,22 @@
 
 ## Features
 
-ODX Commander is a VS-Code extension that allows fast navigation through large diagnostic data sets available in ODX format.
+ODX Commander is a sophisticated VS-Code extension that allows fast navigation through large diagnostic data sets available in ODX format. After installation there are two additional view groups on the left:
 
 
 ![Diagnostic Layers](./help/layers.jpg)
 
-After installation there are two additional view containers on the left. One shows detailed information about all diagnostic layer containers and appropriate structure for
+The first group shows detailed information about all diagnostic layer containers and appropriate structure for
 
-* Protocols
-* Functional Groups
-* Shared Data
-* Base Variants
-* ECU Variants
+* Protocols (Purple)
+* Functional Groups (Blue)
+* Shared Data (Red)
+* Base Variants (Yellow)
+* ECU Variants (Green)
 
-the other one shows the structure of the remaining ODX categorries
+Each layer is represented by a unique color to simply indicate the hierarchy location of all diagnostic elements.
+
+The second group shows the structure of all other remaining ODX categories
 
 * Vehicle Information
 * Comparams
