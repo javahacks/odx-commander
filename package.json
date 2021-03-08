@@ -19,11 +19,11 @@
 		"onView:function_dictionary_spec",
 		"onView:multiple_ecu_job_spec",
 		"onView:ecu_config",
-		"onView:protocols",
-		"onView:sharedData",
-		"onView:baseVariants",
-		"onView:ecuVariants",
-		"onView:functionalGroups",
+		"onView:protocol",
+		"onView:shared_data",
+		"onView:base_variant",
+		"onView:ecu_variant",
+		"onView:functional_group",
 		"onCommand:odx.setOdxSource"
 	],
 	"main": "./out/extension/extension.js",
@@ -68,27 +68,27 @@
 			],
 			"layer-explorer": [
 				{
-					"id": "protocols",
+					"id": "protocol",
 					"name": "Protocols",
 					"visibility": "collapsed"
 				},
 				{
-					"id": "functionalGroups",
+					"id": "functional_group",
 					"name": "Functional Groups",
 					"visibility": "collapsed"
 				},
 				{
-					"id": "sharedData",
+					"id": "shared_data",
 					"name": "Shared Data",
 					"visibility": "collapsed"
 				},
 				{
-					"id": "baseVariants",
+					"id": "base_variant",
 					"name": "Base Variants",
 					"visibility": "collapsed"
 				},
 				{
-					"id": "ecuVariants",
+					"id": "ecu_variant",
 					"name": "ECU Variants",
 					"visibility": "collapsed"
 				}
@@ -111,7 +111,7 @@
 		"commands": [
 			{
 				"command": "odx.setOdxSource",
-				"title": "Set Path as active ODX Location"
+				"title": "Set or Update ODX Index"
 			}
 		],
 		"menus": {

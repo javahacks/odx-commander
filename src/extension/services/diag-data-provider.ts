@@ -7,11 +7,11 @@ export function initDiagDataProvider(context: vscode.ExtensionContext, odxServic
 
   const diagnosticProviderMap = new Map<string, RefreshableBaseNodeProvider>();
 
-  diagnosticProviderMap.set('protocols', new DiagnosticDataTreeProvider("PROTOCOL", odxService, context));
-  diagnosticProviderMap.set('functionalGroups', new DiagnosticDataTreeProvider("FUNCTIONAL_GROUP", odxService, context));
-  diagnosticProviderMap.set('sharedData', new DiagnosticDataTreeProvider("SHARED_DATA", odxService, context));
-  diagnosticProviderMap.set('baseVariants', new DiagnosticDataTreeProvider("BASE_VARIANT", odxService, context));
-  diagnosticProviderMap.set('ecuVariants', new DiagnosticDataTreeProvider("ECU_VARIANT", odxService, context));
+  diagnosticProviderMap.set('protocol', new LayerDataTreeProvider("protocol", odxService, context));
+  diagnosticProviderMap.set('functional_group', new LayerDataTreeProvider("functional_group", odxService, context));
+  diagnosticProviderMap.set('shared_data', new LayerDataTreeProvider("shared_data", odxService, context));
+  diagnosticProviderMap.set('base_variant', new LayerDataTreeProvider("base_variant", odxService, context));
+  diagnosticProviderMap.set('ecu_variant', new LayerDataTreeProvider("ecu_variant", odxService, context));
 
   diagnosticProviderMap.set('flash', new CategoryTreeProvider("flash", odxService, context));
   diagnosticProviderMap.set('vehicle_info_spec', new CategoryTreeProvider("vehicle_info_spec", odxService, context));
@@ -52,7 +52,10 @@ abstract class RefreshableBaseNodeProvider implements vscode.TreeDataProvider<Ba
   }
 }
 
-class DiagnosticDataTreeProvider extends RefreshableBaseNodeProvider {
+/**
+ * Tree provider for diagnostic layers
+ */
+class LayerDataTreeProvider extends RefreshableBaseNodeProvider {
 
   public getChildren(element?: BaseNode): vscode.ProviderResult<vscode.TreeItem[]> {
     if (element instanceof ServiceNode) {
@@ -60,7 +63,7 @@ class DiagnosticDataTreeProvider extends RefreshableBaseNodeProvider {
       return details.then(details => details.map(detail => new DiagnosticElementNode(detail, this.context)));
     }
 
-    if (element instanceof CategoryNode) {
+    if (element instanceof GroupingNode) {
       return element.children;
     }
 
@@ -86,11 +89,11 @@ class DiagnosticDataTreeProvider extends RefreshableBaseNodeProvider {
       const children = [] as vscode.TreeItem[];
       if (layerDetails.services.length > 0) {
         const childNodes = layerDetails.services.map(service => new ServiceNode(service, this.context));
-        children.push(new CategoryNode("Diagnostic Services", childNodes, this.context, 'type_service.svg'));
+        children.push(new GroupingNode("Diagnostic Services", childNodes, this.context, 'service.svg'));
       }
       if (layerDetails.variantPatterns && layerDetails.variantPatterns.length > 0) {
         const variantPattern = layerDetails.variantPatterns.map(pattern => new DiagnosticElementNode(pattern, this.context));
-        children.push(new CategoryNode("Variant Patterns", variantPattern, this.context, 'variant_pattern.svg'));
+        children.push(new GroupingNode("Variant Patterns", variantPattern, this.context, 'variant_pattern.svg'));
       }
 
       return children;
@@ -99,6 +102,9 @@ class DiagnosticDataTreeProvider extends RefreshableBaseNodeProvider {
   }
 }
 
+/**
+ * Tree provider for simple ODX Categories
+ */
 class CategoryTreeProvider extends RefreshableBaseNodeProvider {
   getChildren(element?: BaseNode): vscode.ProviderResult<vscode.TreeItem[]> {
     if (element instanceof DocumentNode) {
@@ -126,30 +132,29 @@ class BaseNode extends vscode.TreeItem {
   }
 }
 
-class CategoryNode extends vscode.TreeItem {
-  constructor(name: string, public children: BaseNode[], context: vscode.ExtensionContext, icon?: string,) {
-    super(name);
-    this.collapsibleState = children.length > 0 ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None;
-    if (icon) {
-      this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'odx', icon));
-    }
-  }
-}
-
 class DocumentNode extends BaseNode {
   constructor(public layer: Document, type: string, context: vscode.ExtensionContext) {
     super(layer, context);
     this.collapsibleState = layer.expandable ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None;
-    this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'odx', `${type.toLowerCase()}.svg`));
+    this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'documents', `${type.toLowerCase()}.svg`));
   }
 }
 
 
+class GroupingNode extends vscode.TreeItem {
+  constructor(name: string, public children: BaseNode[], context: vscode.ExtensionContext, icon?: string,) {
+    super(name);
+    this.collapsibleState = children.length > 0 ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None;
+    if (icon) {
+      this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'types', icon));
+    }
+  }
+}
 
 class ServiceNode extends BaseNode {
   constructor(public service: DiagService, context: vscode.ExtensionContext) {
     super(service, context);
-    this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'odx', `type_${service.type.toLowerCase()}.svg`));
+    this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'types', `${service.type.toLowerCase()}.svg`));
   }
 }
 
@@ -158,7 +163,7 @@ class DiagnosticElementNode extends BaseNode {
     super(item, context);
     this.collapsibleState = item.children && item.children.length > 0 ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None;
     if (item.type) {
-      this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'odx', `type_${item.type.toLowerCase()}.svg`));
+      this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'types', `${item.type.toLowerCase()}.svg`));
     }
   }
 }

@@ -7,5 +7,7 @@ export const jumpToLineHandler = (uri: string, startLine: number, startColumn: n
 };
 
 export const odxSourceHandler = async (odxSource: vscode.Uri) => {
+	//reset and set to enforce configuration change
+	await vscode.workspace.getConfiguration().update("odx-server.activeIndexLocation", undefined, true);
 	await vscode.workspace.getConfiguration().update("odx-server.activeIndexLocation", odxSource.fsPath, true);
 };
