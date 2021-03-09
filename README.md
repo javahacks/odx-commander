@@ -37,15 +37,15 @@ Each layer is represented by a unique color to simply indicate at which location
 
 There are basically three options to select and index an ODX data source.
 
-1. Open a folder that contains the PDX file in VS Code and select _**Set or Update ODX Index**_ for the selected PDX file.
+Open a folder that contains the PDX file in VS Code and select _**Set or Update ODX Index**_ for the selected PDX file.
 
 ![Diagnostic Layers](./help/select-pdx.png)
 
-1. Open a folder that contains unpacked ODX files in VS Code and select _**Set or Update ODX Index**_ for the selected folder or any ODX file within.
+Open a folder that contains unpacked ODX files in VS Code and select _**Set or Update ODX Index**_ for the selected folder or any ODX file within.
 
 ![Diagnostic Layers](./help/select-folder.png)
 
-1. Set 'Active Index Location' directly in the extensions settings.
+Set 'Active Index Location' directly in the extensions settings.
 
 ![Diagnostic Layers](./help/configure-location.png)
 
