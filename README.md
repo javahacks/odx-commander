@@ -2,11 +2,11 @@
 
 ## Features
 
-This extension allows fast navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. 
+This extension allows easy to handle navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. 
 
 ![Diagnostic Layers](./help/demo.jpg)
 
-The extension installs the following view containers:
+The extension provides the following view containers:
 
 * Diagnostic Layers
 * Diagnostic Categories
