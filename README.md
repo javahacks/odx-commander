@@ -2,16 +2,16 @@
 
 ## Features
 
-The ODX Commander extension allows fast navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. 
+This extension allows fast navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. 
 
 ![Diagnostic Layers](./help/demo.jpg)
 
-The extension installs two additional view containers.
+The extension installs the following additional view containers:
 
 * Diagnostic Layers
 * Diagnostic Categories
 
-'Diagnostic Layers' shows all relevant layer related information and the appropriate structure for.
+'Diagnostic Layers' shows all relevant layer related information and the appropriate structure for
 
 * Protocols (Purple)
 * Functional Groups (Blue)
@@ -19,11 +19,11 @@ The extension installs two additional view containers.
 * Base Variants (Yellow)
 * ECU Variants (Green)
 
-Each layer is represented by a unique color to simply indicate at which location of the ODX hierarchy diagnostic elements are defined. (e.g. If request's icon is a yellow square the request is defined in a base variant)
+Each layer is represented by a unique color to simply indicate at which location in the ODX hierarchy each diagnostic element is defined. (e.g. if the request's icon is a yellow square the request is defined in a base variant)
 
 ![Diagnostic Layers](./help/layers.png)
 
-'Diagnostic Categories' shows information about all other remaining ODX categories
+'Diagnostic Categories' shows information about the other remaining ODX categories
 
 * Vehicle Information
 * Comparams
@@ -35,7 +35,7 @@ Each layer is represented by a unique color to simply indicate at which location
 
 ## Getting Started
 
-There are three options to select and index an ODX data source.
+There are basically three options to select and index an ODX data source.
 
 1. Open a folder that contains the PDX file in VS Code and select _**Set or Update ODX Index**_ for the selected PDX file.
 
