@@ -2,12 +2,16 @@
 
 ## Features
 
-ODX Commander is a sophisticated VS-Code extension that allows fast navigation through large diagnostic data sets available in ODX format. After installation there are two additional view groups on the left:
+This extension allows fast navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. 
 
+![Diagnostic Layers](./help/demo.jpg)
 
-![Diagnostic Layers](./help/layers.jpg)
+The extension installs the following additional view containers:
 
-The first group shows detailed information about all diagnostic layer containers and appropriate structure for
+* Diagnostic Layers
+* Diagnostic Categories
+
+'Diagnostic Layers' shows all relevant layer related information and the appropriate structure for
 
 * Protocols (Purple)
 * Functional Groups (Blue)
@@ -15,9 +19,11 @@ The first group shows detailed information about all diagnostic layer containers
 * Base Variants (Yellow)
 * ECU Variants (Green)
 
-Each layer is represented by a unique color to simply indicate the hierarchy location of all diagnostic elements.
+Each layer is represented by a unique color to simply indicate at which location in the ODX hierarchy each diagnostic element is defined. (e.g. if the request's icon is a yellow square the request is defined in a base variant)
 
-The second group shows the structure of all other remaining ODX categories
+![Diagnostic Layers](./help/layers.png)
+
+'Diagnostic Categories' shows information about the other remaining ODX categories
 
 * Vehicle Information
 * Comparams
@@ -29,11 +35,19 @@ The second group shows the structure of all other remaining ODX categories
 
 ## Getting Started
 
-The most important step when using ODX commander is selecting an ODX data source. There are three options available:
+There are basically three options to select and index an ODX data source.
 
-1. Open the folder that conatais the PDX file to use and 
-2. Open the folder that contains unpacked ODX files and 
-3. Set the configuration property in VS code
+Open a folder that contains the PDX file in VS Code and select _**Set or Update ODX Index**_ for the selected PDX file.
+
+![Diagnostic Layers](./help/select-pdx.png)
+
+Open a folder that contains unpacked ODX files in VS Code and select _**Set or Update ODX Index**_ for the selected folder or any ODX file within.
+
+![Diagnostic Layers](./help/select-folder.png)
+
+Set 'Active Index Location' directly in the extensions settings.
+
+![Diagnostic Layers](./help/configure-location.png)
 
 ## Requirements
 
@@ -52,5 +66,4 @@ Unknown
 ### 0.1.0
 
 Initial release of ODX Viewer
-
 
