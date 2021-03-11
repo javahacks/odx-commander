@@ -4,7 +4,7 @@ import * as net from 'net';
 import * as path from 'path';
 import * as vscode from 'vscode';
 import { LanguageClient, LanguageClientOptions, StreamInfo } from 'vscode-languageclient';
-import { DiagService,  DiagnosticElement,  Document,  Reference, LayerDetails } from '../../shared/models';
+import { DiagService, DiagnosticElement, Document, Reference, LayerDetails } from '../../shared/models';
 
 /**
  * This class implements all client related LSP services
@@ -23,7 +23,7 @@ export class OdxLspService {
 
     public async sendConfigurationChanged() {
         const indexLocation = vscode.workspace.getConfiguration().get("odx-server.activeIndexLocation") as string;
-        if(indexLocation){
+        if (indexLocation) {
             vscode.Uri.parse(indexLocation);
             await this.lspClient.onReady();
             this.lspClient.sendNotification("workspace/didChangeConfiguration", {});
@@ -37,14 +37,14 @@ export class OdxLspService {
         return result as DiagnosticElement[];
     }
 
-    
+
     public async fetchLayerDetails(reference: Reference) {
         await this.lspClient.onReady();
         const result = await this.lspClient.sendRequest("odx/getLayerDetails", reference);
         return result as LayerDetails;
     }
 
-    public async fetchCategoriesByType(type:string): Promise<Document[]> {
+    public async fetchCategoriesByType(type: string): Promise<Document[]> {
         await this.lspClient.onReady();
         const result = await this.lspClient.sendRequest("odx/getCategoriesByType", type);
         return result as Document[];
@@ -101,11 +101,15 @@ export class OdxLspService {
                 })
             ).listen(0, "127.0.0.1", () => {
                 const port = (server.address() as net.AddressInfo).port;
-                const command = "java -Xmx1g -jar \"" + executablePath + "\" " + port;                
+                const command = "java -Xmx+" + this.getHeapSpaceConfiguration() + " -jar \"" + executablePath + "\" " + port;
                 child_process.exec(command, (error, stdout, stderr) => {/** log errors */ });
             });
         });
     };
+
+    private getHeapSpaceConfiguration() {
+        return vscode.workspace.getConfiguration().get('odx-server.maxHeapSpace', '1g');
+    }
 
     private connectToClient(): Promise<StreamInfo> {
         let socket = net.connect({ port: 8090 });

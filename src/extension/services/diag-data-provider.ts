@@ -126,7 +126,7 @@ class BaseNode extends vscode.TreeItem {
     this.collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
     const location = object.location;
     if (location) {      
-      const args = [vscode.Uri.parse('odx:' + location.fileUri),location.startLine, 0, location.endLine, location.endColumn];
+      const args = [location.fileUri,location.startLine, 0, location.endLine, location.endColumn];
       this.command = { command: "odx.jumpToLine", title: "Open location", arguments: args };
     }
   }
