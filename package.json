@@ -138,6 +138,13 @@
 					"default": "",
 					"description": "The absolute path of your active ODX location.",
 					"scope": "application"
+				},
+				"odx-server.maxHeapSpace": {
+					"type": "string",
+					"default": "1g",
+					"enum": ["512m", "1g","2g","4g"],
+					"description": "The maximum heap space for the ODX language server (Restart Required!). ",
+					"scope": "application"
 				}
 			}
 		}
