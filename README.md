@@ -4,14 +4,9 @@
 
 This extension allows easy to handle navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. 
 
-![Diagnostic Layers](./help/demo.jpg)
+![Diagnostic Layers](./help/demo.gif)
 
-The extension provides the following view containers:
-
-* Diagnostic Layers
-* Diagnostic Categories
-
-'Diagnostic Layers' views show layer related information and the appropriate structure for
+The extension provides additional views containers. **'Diagnostic Layers'** shows layer related information and the appropriate structure for
 
 * Protocols (Purple)
 * Functional Groups (Blue)
@@ -23,7 +18,7 @@ Each layer is represented by a distinct color to simply indicate at which locati
 
 ![Diagnostic Layers](./help/layers.png)
 
-'Diagnostic Categories' views show information for the remaining ODX categories
+**'Diagnostic Categories'** shows information for the remaining ODX categories
 
 * Vehicle Information
 * Comparams
@@ -35,17 +30,17 @@ Each layer is represented by a distinct color to simply indicate at which locati
 
 ## Getting Started
 
-The most important step is to select and index a single ODX data source. There are three options to achieve that.
+The most important step is selecting an ODX data source by one of the following options.
 
-Open a folder that contains the PDX file in VS Code and select _**Set or Update ODX Index**_ in the context menu of the selected PDX file.
+1. Open a folder that contains the PDX file in VS Code and select _**Set or Update ODX Index**_ in the context menu of the selected PDX file.
 
 ![Diagnostic Layers](./help/select-pdx.png)
 
-Open a folder that contains all unpacked ODX files in VS Code and select _**Set or Update ODX Index**_ in the context of the selected folder or any contained ODX file.
+2. Open a folder that contains all unpacked ODX files in VS Code and select _**Set or Update ODX Index**_ in the context of the selected folder or any contained ODX file.
 
 ![Diagnostic Layers](./help/select-folder.png)
 
-Both options above will automatically update the extension configuration 'Active Index Location' which you can also set in the settings editro directly.
+3. Both options above will automatically update the extension configuration 'Active Index Location' which you can also set in the settings editro directly.
 
 ![Diagnostic Layers](./help/configure-location.png)
 
