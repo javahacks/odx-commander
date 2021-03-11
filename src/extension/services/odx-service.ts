@@ -101,8 +101,8 @@ export class OdxLspService {
                 })
             ).listen(0, "127.0.0.1", () => {
                 const port = (server.address() as net.AddressInfo).port;
-                const command = "java -Xmx+" + this.getHeapSpaceConfiguration() + " -jar \"" + executablePath + "\" " + port;
-                child_process.exec(command, (error, stdout, stderr) => {/** log errors */ });
+                const command = "java -Xmx" + this.getHeapSpaceConfiguration() + " -jar \"" + executablePath + "\" " + port;
+                child_process.exec(command, (error, stdout, stderr) => {/** TODO log errors */ });
             });
         });
     };
