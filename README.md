@@ -1,12 +1,15 @@
 # ODX Commander
 
-## Features
-
-This extension allows easy to handle navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. After installation additional views and commands for ODX data browsing are available in the workbench.
+[Visual Studio Code](https://code.visualstudio.com/) extension that allows easy to handle navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. The extension provides additional views and commands for ODX data browsing in the workbench.
 
 ![Diagnostic Layers](./help/demo.gif)
 
-**'Diagnostic Layers'** views show layer related information and the appropriate structure for
+
+## Features
+
+### Diagnostic Layers
+
+The **Diagnostic Layers** container shows layer related information and the appropriate structure for
 
 * Protocols (Purple)
 * Functional Groups (Blue)
@@ -18,7 +21,9 @@ Each layer is represented by a distinct color to simply indicate at which locati
 
 ![Diagnostic Layers](./help/layers.png)
 
-**'Diagnostic Categories'** shows information for the remaining ODX categories
+### Diagnostic Categories
+
+The **Diagnostic Categories** container shows information for the remaining ODX categories
 
 * Vehicle Information
 * Comparams
