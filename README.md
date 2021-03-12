@@ -35,7 +35,7 @@ The **Diagnostic Categories** container shows information for the remaining ODX 
 
 ## Getting Started
 
-The most important step is selecting an ODX data source by one of the following options.
+Before you can browse any data you have to select an appropriate ODX data source by one of the following options:
 
 1. Open a folder that contains the PDX file in VS Code and select _**Set or Update ODX Index**_ in the context menu of the selected PDX file.
 
