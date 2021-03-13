@@ -45,13 +45,10 @@ Before you can browse any data you have to select an appropriate ODX data source
 
 ![Diagnostic Layers](./help/select-folder.png)
 
-3. Both options above will automatically update the extension configuration 'Active Index Location' which you can also set in the settings editro directly.
+3. Both options above will automatically update the extension configuration 'Active Index Location' which you can also set in the settings editor directly.
 
 ![Diagnostic Layers](./help/configure-location.png)
 
-The indexing process might take some time. However 
-You can switch different 
-If you change an unpacked ODX file in the editor the change is not immediately reflected. However you can select _**Set or Update ODX Index**_ in the editors context menu.
 
 ## Requirements
 
