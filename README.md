@@ -17,7 +17,7 @@ The **Diagnostic Layers** container shows layer related information and the appr
 * Base Variants (Yellow)
 * ECU Variants (Green)
 
-Each layer is represented by a distinct color to simply indicate at which location in the ODX hierarchy a diagnostic element is defined. (e.g. if the request's icon is a yellow square the request is defined in a base variant)
+Each layer is represented by a distinct color to indicate at which location in the ODX hierarchy a diagnostic element is defined. (e.g. if the request's icon is a yellow square the request is defined in a base variant)
 
 ![Diagnostic Layers](./help/layers.png)
 
