@@ -66,5 +66,5 @@ Unknown
 
 ### 0.1.0
 
-Initial release of ODX Viewer
+- Initial ODX Commander release
 
