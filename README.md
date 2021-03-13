@@ -37,15 +37,15 @@ The **Diagnostic Categories** container shows information for the remaining ODX 
 
 Before you can browse any data you have to select an appropriate ODX data source by one of the following options:
 
-1. Open a folder that contains the PDX file in VS Code and select _**Set or Update ODX Index**_ in the context menu of the selected PDX file.
+Open a folder that contains the PDX file in VS Code and select _**'Set or Update ODX Index'**_ in the context menu of the selected PDX file.
 
 ![Diagnostic Layers](./help/select-pdx.png)
 
-2. Open a folder that contains all unpacked ODX files in VS Code and select _**Set or Update ODX Index**_ in the context of the selected folder or any contained ODX file.
+Open a folder that contains all unpacked ODX files in VS Code and select _**'Set or Update ODX Index'**_ in the context of the selected folder or any contained ODX file.
 
 ![Diagnostic Layers](./help/select-folder.png)
 
-3. Both options above will automatically update the extension configuration 'Active Index Location' which you can also set in the settings editor directly.
+Both options above will automatically update the extension configuration _**'Active Index Location'**_ which you can also set in the settings editor directly.
 
 ![Diagnostic Layers](./help/configure-location.png)
 
