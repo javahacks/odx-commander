@@ -34,12 +34,10 @@ jobs:
           npm install -g vsce
           npm install   
           vsce package
-
-
-       - uses: "marvinpinto/action-automatic-releases@latest"
-          with:
-            repo_token: "${{ secrets.GITHUB_TOKEN }}"
-            automatic_release_tag: "latest"
-            prerelease: true
-            title: "Development Build"
-            files: odx-commander-*.vsix
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+         repo_token: "${{ secrets.GITHUB_TOKEN }}"
+         automatic_release_tag: "latest"
+         prerelease: true
+         title: "Development Build"
+         files: odx-commander-*.vsix
