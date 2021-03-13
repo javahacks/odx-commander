@@ -108,7 +108,7 @@ export class OdxLspService {
     };
 
     private getHeapSpaceConfiguration() {
-        return vscode.workspace.getConfiguration().get('odx-server.maxHeapSpace', '1g');
+        return vscode.workspace.getConfiguration().get('odx-server.maxHeapSpace', '1g').toLowerCase();
     }
 
     private connectToClient(): Promise<StreamInfo> {
