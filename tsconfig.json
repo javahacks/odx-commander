@@ -7,13 +7,13 @@
 		"lib": [
 			"es6",
 			"dom"
-		],		
+		],
 		"strict": true,
-		"rootDir": "src"		
+		"rootDir": "src"
 	},
 	"exclude": [
 		"node_modules",
 		".vscode-test",
-		"src/webviews"		
+		"src/webviews"
 	]
 }
