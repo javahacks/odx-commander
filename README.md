@@ -33,6 +33,13 @@ The **Diagnostic Categories** container shows information for the remaining ODX 
 * ECU Jobs
 * Flash Data
 
+
+### Vehicle Information
+
+The 'Vehicle Information' overview TODO
+
+![Diagnostic Layers](./help/vi-help.png)
+
 ## Getting Started
 
 Before you can browse any data you have to select an appropriate ODX data source by one of the following options:
@@ -57,14 +64,4 @@ Java 8 or higher must be installed on your system.
 ## Known Issues
 
 Unknown
-
-## Release Notes
-
-- Support for packed (PDX) and unpacked ODX files
-- Hyperlink support for ODX Links in XML files
-- The editor shows simplified and formatted ODX documents (e.g. removes admin data, company data, oids ...)
-
-### 0.1.0
-
-- Initial ODX Commander release
 

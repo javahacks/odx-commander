@@ -1,10 +1,15 @@
-# Changelog
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [0.1.0]
+## [Unreleased]
+
+- Added comparam configuration in 'Vehicle Informations' view
+- Improved 'Comparams' view
+- Improved 'Comparam Subsets' view
+
+## 0.1.0  (March 13,2021)
 
 - Initial release of ODX Commander
+- Support for packed (PDX) and unpacked ODX files
+- Hyperlink support for ODX Links in XML files
+- The editor shows simplified and formatted ODX documents (e.g. removes admin data, company data, oids ...)
+
