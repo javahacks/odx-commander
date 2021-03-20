@@ -25,13 +25,14 @@ Each layer is represented by a distinct color to indicate at which location in t
 
 The **Diagnostic Categories** container shows information for the remaining ODX categories
 
-* Vehicle Information
+* Vehicle Informations
 * Comparams
 * Comparam Subsets
 * ECU Config
 * Function Dictionaries
 * ECU Jobs
 * Flash Data
+
 
 ## Getting Started
 
@@ -50,6 +51,18 @@ Both options above will automatically update the extension configuration _**'Act
 ![Diagnostic Layers](./help/configure-location.png)
 
 
+## Catgegory Details
+
+### Vehicle Information
+
+**Vehicle Informations** overview lists all available **_VEHICLE-INFO-SPEC_** documents in the current ODX index and highlights most relevant information in a simple tree structure.
+
+![Diagnostic Layers](./help/vi-help.png)
+
+For any logical link that configures communication parametes via **_LINK-COMPARAM-REF_** all that parameters, values and appropriate units are shown. Parameter values that vary from their physical default values are prepended with a warning icon.
+
+For convenience the logical links **_BASE-VARIANT-REF_** target is selectable in the tree.
+
 ## Requirements
 
 Java 8 or higher must be installed on your system.
@@ -58,12 +71,3 @@ Java 8 or higher must be installed on your system.
 
 Unknown
 
-## Release Notes
-
-- Support for packed (PDX) and unpacked ODX files
-- Hyperlink support for ODX Links in XML files
-- The editor shows simplified and formatted ODX documents (e.g. removes admin data, company data, oids ...)
-
-### 0.1.0
-
-- Initial ODX Commander release
