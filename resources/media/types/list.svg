@@ -12,7 +12,7 @@
    width="24"
    version="1.1"
    id="svg6"
-   sodipodi:docname="list-24px.svg"
+   sodipodi:docname="list.svg"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
   <metadata
      id="metadata12">
@@ -40,13 +40,14 @@
      inkscape:window-height="1018"
      id="namedview8"
      showgrid="false"
-     inkscape:zoom="34.521073"
+     inkscape:zoom="33.648126"
      inkscape:cx="12"
      inkscape:cy="12"
      inkscape:window-x="-6"
      inkscape:window-y="-6"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg6" />
+     inkscape:current-layer="svg6"
+     inkscape:document-rotation="0" />
   <path
      d="M0 0h24v24H0z"
      fill="none"
@@ -54,5 +55,5 @@
   <path
      d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"
      id="path4"
-     style="fill:#73c972;fill-opacity:1" />
+     style="fill:#a0a0a0;fill-opacity:1" />
 </svg>
