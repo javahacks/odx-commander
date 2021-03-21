@@ -53,7 +53,7 @@ Both options above will automatically update the extension configuration _**'Act
 
 ## Catgegory Details
 
-### Vehicle Information
+### Vehicle Informations
 
 **Vehicle Informations** overview lists all available **_VEHICLE-INFO-SPEC_** documents in the current ODX index and highlights most relevant information in a simple tree structure.
 
