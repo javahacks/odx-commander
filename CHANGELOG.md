@@ -5,6 +5,7 @@
 - Added comparam configuration in 'Vehicle Informations' view
 - Improved 'Comparams' view
 - Improved 'Comparam Subsets' view
+- Add support for the Flash structure
 
 ## 0.1.0  (March 13,2021)
 
