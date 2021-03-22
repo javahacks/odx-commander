@@ -2,7 +2,7 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-      - 'v*rc*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 name: Pre Release
 
@@ -36,7 +36,7 @@ jobs:
           vsce package
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-         repo_token: "${{ secrets.GITHUB_TOKEN }}"
+         repo_token: "${{ secrets.GITHUB_TOKEN }}" 
          automatic_release_tag: "latest"
-         prerelease: true         
+         prerelease: contains(github.ref, 'rc')
          files: odx-commander-*.vsix
