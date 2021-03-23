@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { Location } from '../../shared/models';
 
 export const jumpToLineHandler = (location: Location, preview: boolean) => {
-	const startPosition = new vscode.Position(location.startLine, 10);
+	const startPosition = new vscode.Position(location.startLine, 0);
 	const endPosition = new vscode.Position(location.endLine, location.endColumn);
 	vscode.commands.executeCommand("vscode.open", vscode.Uri.parse("odx:" + location.fileUri), { selection: new vscode.Range(startPosition, endPosition), preserveFocus: true, preview: preview });
 };
