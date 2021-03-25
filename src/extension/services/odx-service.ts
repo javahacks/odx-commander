@@ -89,6 +89,13 @@ export class OdxLspService {
         );
 
         client.start();
+
+        client.onReady().then(() =>
+            //reload data whenever the global index changed
+            client.onNotification("odx/indexChanged", () => vscode.commands.executeCommand("odx.reloadData"))
+        );
+
+
         return client;
     }
 
