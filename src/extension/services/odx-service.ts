@@ -73,7 +73,7 @@ export class OdxLspService {
         const executablePath = context.asAbsolutePath(path.join('resources', 'odx-language-server.jar'));
 
         let clientOptions: LanguageClientOptions = {
-            documentSelector: [{ scheme: 'odx', language: 'xml' }],
+            documentSelector: [{ scheme: 'odx', language: 'xml' },{ scheme: 'file', language: 'xml' }],
             synchronize: {
                 fileEvents: vscode.workspace.createFileSystemWatcher('**/*.{xml,odx-index,odx,pdx}*')
             }
