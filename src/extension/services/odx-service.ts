@@ -23,8 +23,7 @@ export class OdxLspService {
 
     public async sendConfigurationChanged() {
         const indexLocation = vscode.workspace.getConfiguration().get("odx-server.activeIndexLocation") as string;
-        if (indexLocation) {
-            vscode.Uri.parse(indexLocation);
+        if (indexLocation) {            
             await this.lspClient.onReady();
             this.lspClient.sendNotification("workspace/didChangeConfiguration", {});
             vscode.commands.executeCommand("odx.reloadData");
