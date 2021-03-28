@@ -11,9 +11,9 @@
 
 ## 0.2.0  (March 22,2021)
 
-- Add comparam configuration in 'Vehicle Informations' view
-- Improved 'Comparams' view
-- Improved 'Comparam Subsets' view
+- Add comparam configuration in **Vehicle Informations** view
+- Improved **Comparams** view
+- Improved **Comparam Subsets** view
 - Add support for the Flash structure
 - Add table-key, table-struct visualization
 

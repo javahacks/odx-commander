@@ -23,8 +23,7 @@ export class OdxLspService {
 
     public async sendConfigurationChanged() {
         const indexLocation = vscode.workspace.getConfiguration().get("odx-server.activeIndexLocation") as string;
-        if (indexLocation) {
-            vscode.Uri.parse(indexLocation);
+        if (indexLocation) {            
             await this.lspClient.onReady();
             this.lspClient.sendNotification("workspace/didChangeConfiguration", {});
             vscode.commands.executeCommand("odx.reloadData");
@@ -73,7 +72,7 @@ export class OdxLspService {
         const executablePath = context.asAbsolutePath(path.join('resources', 'odx-language-server.jar'));
 
         let clientOptions: LanguageClientOptions = {
-            documentSelector: [{ scheme: 'odx', language: 'xml' }],
+            documentSelector: [{ scheme: 'odx', language: 'xml' },{ scheme: 'file', language: 'xml' }],
             synchronize: {
                 fileEvents: vscode.workspace.createFileSystemWatcher('**/*.{xml,odx-index,odx,pdx}*')
             }

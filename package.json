@@ -137,8 +137,7 @@
 					"type": "string",
 					"default": "",
 					"description": "The absolute path of your active ODX location.",
-					"scope": "application",
-					"format": "uri"
+					"scope": "application"					
 				},
 				"odx-server.maxHeapSpace": {
 					"type": "string",
