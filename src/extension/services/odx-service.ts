@@ -4,7 +4,7 @@ import * as net from 'net';
 import * as path from 'path';
 import * as vscode from 'vscode';
 import { LanguageClient, LanguageClientOptions, StreamInfo } from 'vscode-languageclient';
-import { DiagService, DiagnosticElement, Document, Reference, LayerDetails } from '../../shared/models';
+import { DiagService, DiagnosticElement, Document, Reference, LayerDetails, Location } from '../../shared/models';
 
 /**
  * This class implements all client related LSP services
@@ -19,6 +19,16 @@ export class OdxLspService {
                 this.sendConfigurationChanged();
             }
         });
+        this.initNotifications();
+    }
+
+    private initNotifications() {
+        this.lspClient.onReady().then(() =>
+            //reload data whenever the global index changed
+            this.lspClient.onNotification("odx/indexChanged", () => {
+                vscode.commands.executeCommand("odx.reloadData");
+            })
+        );
     }
 
     public async sendConfigurationChanged() {
@@ -27,7 +37,13 @@ export class OdxLspService {
             await this.lspClient.onReady();
             this.lspClient.sendNotification("workspace/didChangeConfiguration", {});
             vscode.commands.executeCommand("odx.reloadData");
-        }
+        }        
+    }
+
+    public async resolveLink(uri:vscode.Uri,id:number) {
+        await this.lspClient.onReady();
+        const result = await this.lspClient.sendRequest("odx/resolveLinkLocation", [uri,id]);
+        return result as Location;
     }
 
     public async fetchServiceDetails(service: DiagService) {
@@ -88,13 +104,7 @@ export class OdxLspService {
         );
 
         client.start();
-
-        client.onReady().then(() =>
-            //reload data whenever the global index changed
-            client.onNotification("odx/indexChanged", () => vscode.commands.executeCommand("odx.reloadData"))
-        );
-
-
+        
         return client;
     }
 

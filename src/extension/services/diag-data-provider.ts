@@ -25,9 +25,10 @@ export function initDiagDataProvider(context: vscode.ExtensionContext, odxServic
     vscode.window.registerTreeDataProvider(key, value);
   });
 
-  context.subscriptions.push(vscode.commands.registerCommand("odx.reloadData", () => {
-    diagnosticProviderMap.forEach((value, key) => value.refresh());
-  }));
+  context.subscriptions.push(vscode.commands.registerCommand("odx.reloadData", () =>
+    //reload visible tree views on model change  
+    diagnosticProviderMap.forEach((value, key) => value.refresh())
+  ));
 
 }
 
