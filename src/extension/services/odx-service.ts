@@ -40,12 +40,6 @@ export class OdxLspService {
         }        
     }
 
-    public async resolveLink(uri:vscode.Uri,id:number) {
-        await this.lspClient.onReady();
-        const result = await this.lspClient.sendRequest("odx/resolveLinkLocation", [uri,id]);
-        return result as Location;
-    }
-
     public async fetchServiceDetails(service: DiagService) {
         await this.lspClient.onReady();
         const result = await this.lspClient.sendRequest("odx/getServiceDetails", service);
