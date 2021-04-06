@@ -121,13 +121,6 @@
 					"when": "explorerResourceIsFolder || resourceFilename =~ /\\.pdx$|\\.odx-?.*$/i",
 					"group": "2_workspace "
 				}
-			],
-			"editor/context": [
-				{
-					"command": "odx.setOdxSource",
-					"when": "resourceFilename =~ /\\.odx-?.*$/i",
-					"group": "2_workspace "
-				}
 			]
 		},
 		"configuration": {

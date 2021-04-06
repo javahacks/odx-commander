@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { jumpToLineHandler, odxSourceHandler, resolveLinkHandler } from './services/commands';
+import { jumpToLineHandler, odxSourceHandler } from './services/commands';
 import { initDiagDataProvider } from './services/diag-data-provider';
 
 import { OdxLspService } from './services/odx-service';
@@ -15,7 +15,6 @@ export function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(vscode.commands.registerCommand('odx.jumpToLine', jumpToLineHandler));
 	context.subscriptions.push(vscode.commands.registerCommand("odx.setOdxSource", odxSourceHandler));
-	context.subscriptions.push(vscode.commands.registerCommand("odx.resolveLink", resolveLinkHandler(odxService)));
 
 	initDiagDataProvider(context, odxService);
 
