@@ -1,7 +1,5 @@
 import * as vscode from 'vscode';
-import { LanguageClient } from 'vscode-languageclient';
 import { Location } from '../../shared/models';
-import { OdxLspService } from './odx-service';
 
 export const jumpToLineHandler = (location: Location, preview: boolean) => {
 	const startPosition = new vscode.Position(location.startLine, 0);
