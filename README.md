@@ -2,39 +2,26 @@
 
 [Visual Studio Code](https://code.visualstudio.com/) extension that allows easy to handle navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. The extension provides additional views and commands for ODX data browsing in the workbench.
 
-![Diagnostic Layers](./help/demo.gif)
+## Overview
+1. [Features](#Features)
+2. [Getting Started](#Getting-Started)
+3. [Diagnostic Layers](#Diagnostic-Layers)
+3. [Diagnostic Categories](#Diagnostic-Categories)
+
+## New and noteworthy features
+
+### Hyperlink support for ODX links
+
+![ODX Links](./help/odx-links.gif)
+
+### Advanced viewer that shows logical structure for active ODX index
+
+![ODX Links](./help/demo.gif)
+
+### Simple ODX editing capabilities for unpacked ODX files
 
 
-## Features
-
-### Diagnostic Layers
-
-The **Diagnostic Layers** container shows layer related information and the appropriate structure for
-
-* Protocols (Purple)
-* Functional Groups (Blue)
-* Shared Data (Red)
-* Base Variants (Yellow)
-* ECU Variants (Green)
-
-Each layer is represented by a distinct color to indicate at which location in the ODX hierarchy a diagnostic element is defined. (e.g. if the request's icon is a yellow square the request is defined in a base variant)
-
-![Diagnostic Layers](./help/layers.png)
-
-### Diagnostic Categories
-
-The **Diagnostic Categories** container shows information for the remaining ODX categories
-
-* Vehicle Informations
-* Comparams
-* Comparam Subsets
-* ECU Config
-* Function Dictionaries
-* ECU Jobs
-* Flash Data
-
-
-## Getting Started
+## Getting Started 
 
 Before you can browse any data you have to select an appropriate ODX data source by one of the following options:
 
@@ -51,7 +38,32 @@ Both options above will automatically update the extension configuration _**'Act
 ![Diagnostic Layers](./help/configure-location.png)
 
 
-## Catgegory Details
+## Diagnostic Layers
+
+The **Diagnostic Layers** container shows layer related information and the appropriate structure for
+
+* Protocols (Purple)
+* Functional Groups (Blue)
+* Shared Data (Red)
+* Base Variants (Yellow)
+* ECU Variants (Green)
+
+Each layer is represented by a distinct color to indicate at which location in the ODX hierarchy a diagnostic element is defined. (e.g. if the request's icon is a yellow square the request is defined in a base variant)
+
+![Diagnostic Layers](./help/layers.png)
+
+## Diagnostic Categories
+
+The **Diagnostic Categories** container shows information for the remaining ODX categories
+
+* Vehicle Informations
+* Comparams
+* Comparam Subsets
+* ECU Config
+* Function Dictionaries
+* ECU Jobs
+* Flash Data
+
 
 ### Vehicle Information
 
