@@ -15,7 +15,7 @@
 
 ### Advanced viewer that shows logical structure for active ODX index
 
-![ODX Links](./help/demo.gif)
+![ODX Links](./help/layer-demo.gif)
 
 ### Simple ODX editing capabilities for unpacked ODX files
 
