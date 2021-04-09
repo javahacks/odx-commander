@@ -13,7 +13,7 @@
 
 ![ODX Links](./help/odx-links.gif)
 
-### Advanced viewer that shows logical structure for active ODX index
+### Viewer that shows logical structure of active ODX index
 
 ![ODX Links](./help/layer-demo.gif)
 

@@ -12,6 +12,7 @@
 	],
 	"icon": "resources/media/odx-commander.png",
 	"activationEvents": [
+		"onLanguage:xml",
 		"onView:vehicle_info_spec",
 		"onView:flash",
 		"onView:comparam_spec",
