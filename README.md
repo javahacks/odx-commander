@@ -17,22 +17,24 @@
 
 ![ODX Links](./help/layer-demo.gif)
 
-### Simple ODX editing capabilities for unpacked ODX files
+### Editing capabilities for unpacked ODX files
+
+![ODX Links](./help/editing-demo.gif)
 
 
 ## Getting Started 
 
 Before you can browse any data you have to select an appropriate ODX data source by one of the following options:
 
-Open a folder that contains the PDX file in VS Code and select _**'Set or Update ODX Index'**_ in the context menu of the selected PDX file.
+- Open a folder that contains the PDX file in VS Code and select _**'Set or Update ODX Index'**_ in the context menu of the selected PDX file.
 
 ![Diagnostic Layers](./help/select-pdx.png)
 
-Open a folder that contains all unpacked ODX files in VS Code and select _**'Set or Update ODX Index'**_ in the context of the selected folder or any contained ODX file.
+- Open a folder that contains all unpacked ODX files in VS Code and select _**'Set or Update ODX Index'**_ in the context of the selected folder or any contained ODX file.
 
 ![Diagnostic Layers](./help/select-folder.png)
 
-Both options above will automatically update the extension configuration _**'Active Index Location'**_ which you can also set in the settings editor directly.
+- Both options above will automatically update the extension configuration _**'Active Index Location'**_ which you can also set in the settings editor directly.
 
 ![Diagnostic Layers](./help/configure-location.png)
 
