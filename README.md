@@ -10,7 +10,7 @@
 
 ## New and noteworthy features
 
-### Hyperlink support for ODX links
+### Goto definition support for ODX links
 
 ![ODX Links](./help/odx-links.gif)
 
