@@ -4,7 +4,7 @@ import * as net from 'net';
 import * as path from 'path';
 import * as vscode from 'vscode';
 import { LanguageClient, LanguageClientOptions, StreamInfo } from 'vscode-languageclient';
-import { DiagService, DiagnosticElement, Document, Reference, LayerDetails, Location } from '../../shared/models';
+import { DiagService, DiagnosticElement, Document, Reference, LayerDetails, StartTagLocation } from '../../shared/models';
 
 /**
  * This class implements all client related LSP services

@@ -2,7 +2,9 @@
 ## [Unreleased]
 
 - Improved indexing performance
-- File change in unpacked ODX file triggers model update
+- Basic ODX editing support
+- Simplified document view for packed ODX files
+- Replaced codelens support for ODX links by document links (Press CTRL while moving mouse over link)
 
 ## 0.2.1  (March 23,2021)
 

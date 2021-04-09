@@ -1,6 +1,6 @@
 export interface BaseObject {
   name: string;
-  location: Location
+  location: StartTagLocation
   type: string
 }
 
@@ -23,12 +23,10 @@ export interface LayerDetails {
   variantPatterns?: DiagnosticElement[]
 }
 
-export interface Location {
+export interface StartTagLocation {
   fileUri: string;
   startLine: number
-  startColumn: number
-  endLine: number
-  endColumn: number
+  startColumn: number  
 }
 
 export interface Reference {

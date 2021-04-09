@@ -1,9 +1,7 @@
 import * as vscode from 'vscode';
-import { LanguageClient } from 'vscode-languageclient';
-import { Location } from '../../shared/models';
-import { OdxLspService } from './odx-service';
+import { StartTagLocation } from '../../shared/models';
 
-export const jumpToLineHandler = (location: Location, preview: boolean) => {
+export const jumpToLineHandler = (location: StartTagLocation, preview: boolean) => {
 	const startPosition = new vscode.Position(location.startLine, 0);
 	const endPosition = new vscode.Position(location.startLine + 1, 0);
 	const prefix = location.fileUri.startsWith("jar:") ? "odx:" : "";

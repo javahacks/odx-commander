@@ -1,13 +1,45 @@
 # ODX Commander
 
+1. [Introduction](#Introduction)
+1. [Getting Started](#Getting-Started)
+1. [Diagnostic Layers](#Diagnostic-Layers)
+1. [Diagnostic Categories](#Diagnostic-Categories)
+
+## Introduction
+
 [Visual Studio Code](https://code.visualstudio.com/) extension that allows easy to handle navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. The extension provides additional views and commands for ODX data browsing in the workbench.
 
-![Diagnostic Layers](./help/demo.gif)
+### Goto definition support for ODX links
+
+![ODX Links](./help/odx-links.gif)
+
+### Hierarchical viewer that shows logical layer structure 
+
+![ODX Links](./help/layer-demo.gif)
+
+### Editing of unpacked ODX files
+
+![ODX Links](./help/editing-demo.gif)
 
 
-## Features
+## Getting Started 
 
-### Diagnostic Layers
+Before you can browse any data you have to select an appropriate ODX data source by one of the following options:
+
+- Open a folder that contains the PDX file in VS Code and select _**'Set or Update ODX Index'**_ in the context menu of the selected PDX file.
+
+![Diagnostic Layers](./help/select-pdx.png)
+
+- Open a folder that contains all unpacked ODX files in VS Code and select _**'Set or Update ODX Index'**_ in the context of the selected folder or any contained ODX file.
+
+![Diagnostic Layers](./help/select-folder.png)
+
+- Both options above will automatically update the extension configuration _**'Active Index Location'**_ which you can also set in the settings editor directly.
+
+![Diagnostic Layers](./help/configure-location.png)
+
+
+## Diagnostic Layers
 
 The **Diagnostic Layers** container shows layer related information and the appropriate structure for
 
@@ -21,7 +53,7 @@ Each layer is represented by a distinct color to indicate at which location in t
 
 ![Diagnostic Layers](./help/layers.png)
 
-### Diagnostic Categories
+## Diagnostic Categories
 
 The **Diagnostic Categories** container shows information for the remaining ODX categories
 
@@ -33,25 +65,6 @@ The **Diagnostic Categories** container shows information for the remaining ODX 
 * ECU Jobs
 * Flash Data
 
-
-## Getting Started
-
-Before you can browse any data you have to select an appropriate ODX data source by one of the following options:
-
-Open a folder that contains the PDX file in VS Code and select _**'Set or Update ODX Index'**_ in the context menu of the selected PDX file.
-
-![Diagnostic Layers](./help/select-pdx.png)
-
-Open a folder that contains all unpacked ODX files in VS Code and select _**'Set or Update ODX Index'**_ in the context of the selected folder or any contained ODX file.
-
-![Diagnostic Layers](./help/select-folder.png)
-
-Both options above will automatically update the extension configuration _**'Active Index Location'**_ which you can also set in the settings editor directly.
-
-![Diagnostic Layers](./help/configure-location.png)
-
-
-## Catgegory Details
 
 ### Vehicle Information
 
