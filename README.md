@@ -13,11 +13,11 @@
 
 ![ODX Links](./help/odx-links.gif)
 
-### Viewer that shows logical structure of active ODX index
+### Hierarchical viewer that shows logical layer structure 
 
 ![ODX Links](./help/layer-demo.gif)
 
-### Editing capabilities for unpacked ODX files
+### Editing of unpacked ODX files
 
 ![ODX Links](./help/editing-demo.gif)
 
