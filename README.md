@@ -19,6 +19,10 @@
 
 ![ODX Links](./help/editing-demo.gif)
 </details>
+<details>
+<summary>Formatted and simplified read-only view for packed ODX files </summary>
+  For the sake of readability all ODX files in PDX containers are properly formatted and simplified. Unimportant information like admin data, OIDs etc. is omitted.
+</details>
 
 
 ## Getting Started 
