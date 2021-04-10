@@ -1,25 +1,24 @@
 # ODX Commander
 
-1. [Introduction](#Introduction)
-1. [Getting Started](#Getting-Started)
-1. [Diagnostic Layers](#Diagnostic-Layers)
-1. [Diagnostic Categories](#Diagnostic-Categories)
-
-## Introduction
-
 [Visual Studio Code](https://code.visualstudio.com/) extension that allows easy to handle navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. The extension provides additional views and commands for ODX data browsing in the workbench.
 
-### Goto definition support for ODX links
+## Features
 
-![ODX Links](./help/odx-links.gif)
-
-### Hierarchical viewer that shows logical layer structure 
+<details open>
+<summary>Hierarchical viewer that shows logical layer structure</summary>
 
 ![ODX Links](./help/layer-demo.gif)
+</details>
+<details>
+<summary>Goto definition support for ODX links</summary>
 
-### Editing of unpacked ODX files
+![ODX Links](./help/odx-links.gif)
+</details>
+<details>
+<summary>Basic editing support for unpacked ODX files</summary>
 
 ![ODX Links](./help/editing-demo.gif)
+</details>
 
 
 ## Getting Started 
