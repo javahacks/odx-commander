@@ -1,5 +1,5 @@
 
-## [Unreleased]
+## 0.3.0  (April 11,2021)
 
 - Improved indexing performance
 - Basic ODX editing support
