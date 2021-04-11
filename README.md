@@ -27,13 +27,18 @@
 
 ## Getting Started 
 
-Before you can browse any data you have to select an appropriate ODX data source by one of the following options:
+Before you can browse any data you have to choose an appropriate ODX data source first. If you intend to browse ODX data sets only, choose indexing a single PDX file. However if you want to edit ODX documents, choose indexing a folder of upacked ODX files.
 
-- Open a folder that contains the PDX file in VS Code and select _**'Set or Update ODX Index'**_ in the context menu of the selected PDX file.
+### Indexing PDX containers
+
+Open a folder that contains the PDX file in VS Code and select _**'Set or Update ODX Index'**_ in the context menu of the selected PDX file.
 
 ![Diagnostic Layers](./help/select-pdx.png)
 
-- Open a folder that contains all unpacked ODX files in VS Code and select _**'Set or Update ODX Index'**_ in the context of the selected folder or any contained ODX file.
+### Indexing unpacked ODX files
+
+Open a folder that contains all unpacked ODX files in VS Code and select _**'Set or Update ODX Index'**_ in the context of the selected folder or any contained ODX file.
+
 
 ![Diagnostic Layers](./help/select-folder.png)
 
