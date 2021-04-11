@@ -27,7 +27,9 @@
 
 ## Getting Started 
 
-Before you can browse any data you have to choose an appropriate ODX data source first. If you intend to browse ODX data sets only, choose indexing a single PDX file. However if you want to edit ODX documents, choose indexing a folder of upacked ODX files.
+Before you can browse any data you have to choose an appropriate ODX data source first. If you intend to browse ODX data sets only, choose indexing a single PDX container. However if you want to edit ODX documents also, choose indexing a folder of upacked ODX files.
+
+> **_NOTE:_**  Error diagnostics for ODX documents is not yet provided. Be careful when editing underlying XML files to avoid erroneous state!
 
 ### Indexing PDX containers
 
