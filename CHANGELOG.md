@@ -1,3 +1,8 @@
+## 0.4.0  (April 19,2021)
+
+- Provides simple error diagnostics in edit mode
+- Warning indicators for invalid link tags
+- Changed order for short and long names in read-only editor
 
 ## 0.3.0  (April 11,2021)
 
