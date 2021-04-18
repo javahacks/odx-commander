@@ -1,5 +1,11 @@
+## 0.4.0  (April 30,2021)
 
-## 0.3.0  (April 11,2021)
+- Provides simple error diagnostics in edit mode
+- Warning indicators for invalid link tags
+- Changed order for short and long names in read-only editor
+- Visually highlight links in text editor
+
+## 0.3.0  (April 12,2021)
 
 - Improved indexing performance
 - Basic ODX editing support
