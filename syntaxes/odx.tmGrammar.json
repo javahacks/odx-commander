@@ -1,6 +1,6 @@
 {
 	"information_for_contributors": [
-		"copied from https://github.com/microsoft/vscode/blob/main/extensions/xml/syntaxes/xml.tmLanguage.json"
+		"copied and modified from https://github.com/microsoft/vscode/blob/main/extensions/xml/syntaxes/xml.tmLanguage.json"
 	],
 	"version": "https://github.com/atom/language-xml/commit/7bc75dfe779ad5b35d9bf4013d9181864358cb49",
 	"name": "ODX",

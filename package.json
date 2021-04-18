@@ -157,14 +157,14 @@
 			{
 			  "id": "odx",
 			  "extensions": [".odx",".odx-f",".odx-v",".odx-c",".odx-cs",".odx-d",".odx-e",".odx-fd",".odx-m"],
-			  "configuration": "./src/syntaxes/language-configuration.json"			  
+			  "configuration": "./syntaxes/odx.language-configuration.json"			  
 			}
 		],
 		"grammars": [
 			{
 			  "language": "odx",
 			  "scopeName": "source.odx",
-			  "path": "./src/syntaxes/odx.tmGrammar.json"
+			  "path": "./syntaxes/odx.tmGrammar.json"
 			}
 		  ]
 	},
