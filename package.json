@@ -12,7 +12,7 @@
 	],
 	"icon": "resources/media/odx-commander.png",
 	"activationEvents": [
-		"onLanguage:xml",
+		"onLanguage:odx",
 		"onView:vehicle_info_spec",
 		"onView:flash",
 		"onView:comparam_spec",
@@ -139,9 +139,34 @@
 					"enum": ["512M", "1G","2G","4G"],
 					"description": "The maximum heap space for the ODX language server (Restart Required!). ",
 					"scope": "application"
-				}
+				},
+				"odx-server.trace.server": {
+					"type": "string",
+					"enum": [
+					  "off",
+					  "messages",
+					  "verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VS Code and the ODX language server.",
+					"scope": "window"
+				  }
 			}
-		}
+		},
+		"languages": [
+			{
+			  "id": "odx",
+			  "extensions": [".odx",".odx-f",".odx-v",".odx-c",".odx-cs",".odx-d",".odx-e",".odx-fd",".odx-m"],
+			  "configuration": "./src/syntaxes/language-configuration.json"			  
+			}
+		],
+		"grammars": [
+			{
+			  "language": "odx",
+			  "scopeName": "source.odx",
+			  "path": "./src/syntaxes/odx.tmGrammar.json"
+			}
+		  ]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile ",

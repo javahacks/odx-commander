@@ -82,9 +82,9 @@ export class OdxLspService {
         const executablePath = context.asAbsolutePath(path.join('resources', 'odx-language-server.jar'));
 
         let clientOptions: LanguageClientOptions = {
-            documentSelector: [{ scheme: 'odx', language: 'xml' },{ scheme: 'file', language: 'xml' }],
+            documentSelector: [{ scheme: 'odx', language: 'odx' },{ scheme: 'file', language: 'odx' }],
             synchronize: {
-                fileEvents: vscode.workspace.createFileSystemWatcher('**/*.{xml,odx-index,odx,pdx}*')
+                fileEvents: vscode.workspace.createFileSystemWatcher('**/*.{odx,pdx}*')
             }
         };
 
@@ -111,7 +111,7 @@ export class OdxLspService {
                 })
             ).listen(0, "127.0.0.1", () => {
                 const port = (server.address() as net.AddressInfo).port;
-                const command = "java -Xmx" + this.getHeapSpaceConfiguration() + " -jar \"" + executablePath + "\" " + port;
+                const command = "java -XX:+UseStringDeduplication -Xmx" + this.getHeapSpaceConfiguration() + " -jar \"" + executablePath + "\" " + port;
                 child_process.exec(command, (error, stdout, stderr) => {/** TODO log errors */ });
             });
         });
