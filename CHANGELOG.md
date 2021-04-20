@@ -3,7 +3,6 @@
 - Provides simple error diagnostics in edit mode
 - Warning indicators for invalid link tags
 - Changed order for short and long names in read-only editor
-- Visually highlight links in text editor
 
 ## 0.3.0  (April 12,2021)
 
