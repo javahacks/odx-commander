@@ -9,26 +9,28 @@
 
 ![ODX Links](./help/layer-demo.gif)
 </details>
+
 <details>
 <summary>Goto definition support for ODX links</summary>
 
 ![ODX Links](./help/odx-links.gif)
 </details>
+
 <details>
 <summary>Basic editing support for unpacked ODX files</summary>
 
 ![ODX Links](./help/editing-demo.gif)
 </details>
+
 <details>
 <summary>Formatted and simplified read-only view for packed ODX files </summary>
 <br/>For the sake of readability all read-only PDX files are properly formatted and simplified. Unimportant information like admin data, OIDs or namespace prefixes is removed.
 </details>
 
-![ODX Links](./help/folding-ranges.gif)
-</details>
 <details>
 <summary>Folding ranges based on model semantics in order to leverage fold/unfold commands</summary>
 
+![ODX Links](./help/folding-ranges.gif)
 </details>
 
 ## Getting Started 
