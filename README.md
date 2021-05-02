@@ -24,6 +24,12 @@
 <br/>For the sake of readability all read-only PDX files are properly formatted and simplified. Unimportant information like admin data, OIDs or namespace prefixes is removed.
 </details>
 
+![ODX Links](./help/folding-ranges.gif)
+</details>
+<details>
+<summary>Folding ranges based on model semantics in order to leverage fold/unfold commands</summary>
+
+</details>
 
 ## Getting Started 
 
