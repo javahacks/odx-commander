@@ -2,7 +2,7 @@
 	"name": "odx-commander",
 	"displayName": "ODX Commander",
 	"description": "Extension for Open Diagnostics eXchange documents",
-	"version": "0.5.0",
+	"version": "0.4.1",
 	"publisher": "wgeck",
 	"engines": {
 		"vscode": "^1.50.0"

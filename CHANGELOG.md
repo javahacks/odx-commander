@@ -1,3 +1,9 @@
+## 0.4.1  (Mai 3,2021)
+
+- Semantic folding ranges
+- Fixed XML location for ODX categories
+
+
 ## 0.4.0  (April 30,2021)
 
 - Provides simple error diagnostics in edit mode
