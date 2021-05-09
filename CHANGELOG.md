@@ -1,8 +1,13 @@
+## Unreleased
+
+- Hover information for request and response elements
+- Visual improvement for ODX links
+- Updated LSP implementation
+
 ## 0.4.1  (Mai 3,2021)
 
 - Semantic folding ranges
 - Fixed XML location for ODX categories
-
 
 ## 0.4.0  (April 30,2021)
 

@@ -5,7 +5,7 @@
 	"version": "https://github.com/atom/language-xml/commit/7bc75dfe779ad5b35d9bf4013d9181864358cb49",
 	"name": "ODX",
 	"scopeName": "source.odx",
-	"patterns": [
+	"patterns": [		
 		{
 			"begin": "(<\\?)\\s*([-_a-zA-Z0-9]+)",
 			"captures": {
@@ -51,6 +51,11 @@
 					"include": "#internalSubset"
 				}
 			]
+		},
+		{
+			"begin": "<[A-Z\\-]+\\-(SN)?REF ",
+			"end": ">",
+			"name": "punctuation.definition.tag.odx"			
 		},
 		{
 			"include": "#comments"
@@ -378,7 +383,7 @@
 							}
 						}
 					]
-				}
+				}								
 			]
 		}
 	}
