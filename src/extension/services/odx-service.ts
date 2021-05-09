@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as net from 'net';
 import * as path from 'path';
 import * as vscode from 'vscode';
-import { LanguageClient, LanguageClientOptions, StreamInfo } from 'vscode-languageclient';
+import { LanguageClient, LanguageClientOptions, StreamInfo } from 'vscode-languageclient/node';
 import { DiagService, DiagnosticElement, Document, Reference, LayerDetails, StartTagLocation } from '../../shared/models';
 
 /**
@@ -33,11 +33,11 @@ export class OdxLspService {
 
     public async sendConfigurationChanged() {
         const indexLocation = vscode.workspace.getConfiguration().get("odx-server.activeIndexLocation") as string;
-        if (indexLocation) {            
+        if (indexLocation) {
             await this.lspClient.onReady();
             this.lspClient.sendNotification("workspace/didChangeConfiguration", {});
             vscode.commands.executeCommand("odx.reloadData");
-        }        
+        }
     }
 
     public async fetchServiceDetails(service: DiagService) {
@@ -55,7 +55,7 @@ export class OdxLspService {
 
     public async fetchCategoriesByType(type: string): Promise<Document[]> {
         await this.lspClient.onReady();
-        const result = await this.lspClient.sendRequest("odx/getCategoriesByType", type);
+        const result = await this.lspClient.sendRequest("odx/getCategoriesByType", { value: type });
         return result as Document[];
     }
 
@@ -68,13 +68,13 @@ export class OdxLspService {
 
     public async fetchDiagnosticLayers(type: string): Promise<Document[]> {
         await this.lspClient.onReady();
-        const result = await this.lspClient.sendRequest("odx/getLayersByType", type);
+        const result = await this.lspClient.sendRequest("odx/getLayersByType", { value: type });
         return result as Document[];
     }
 
     public async fetchDocument(uri: vscode.Uri): Promise<string> {
         await this.lspClient.onReady();
-        const result = await this.lspClient.sendRequest("odx/getContent", uri.toString());
+        const result = await this.lspClient.sendRequest("odx/getContent", { value: uri.toString() });
         return result as string;
     }
 
@@ -82,10 +82,14 @@ export class OdxLspService {
         const executablePath = context.asAbsolutePath(path.join('resources', 'odx-language-server.jar'));
 
         let clientOptions: LanguageClientOptions = {
-            documentSelector: [{ scheme: 'odx', language: 'odx' },{ scheme: 'file', language: 'odx' }],
+            documentSelector: [{ scheme: 'odx', language: 'odx' }, { scheme: 'file', language: 'odx' }],
             synchronize: {
                 fileEvents: vscode.workspace.createFileSystemWatcher('**/*.{odx,pdx}*')
+            },
+            markdown: {
+                isTrusted: true
             }
+
         };
 
         const serverOptions = executablePath && fs.existsSync(executablePath) ? this.startServer(executablePath) : this.connectToClient;
@@ -98,7 +102,7 @@ export class OdxLspService {
         );
 
         client.start();
-        
+
         return client;
     }
 

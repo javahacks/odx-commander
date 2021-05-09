@@ -2,10 +2,10 @@
 	"name": "odx-commander",
 	"displayName": "ODX Commander",
 	"description": "Extension for Open Diagnostics eXchange documents",
-	"version": "0.4.1",
+	"version": "0.5.0",
 	"publisher": "wgeck",
 	"engines": {
-		"vscode": "^1.50.0"
+		"vscode": "^1.52.0"
 	},
 	"categories": [
 		"Visualization"
@@ -131,42 +131,57 @@
 					"type": "string",
 					"default": "",
 					"description": "The absolute path of your active ODX location.",
-					"scope": "application"					
+					"scope": "application"
 				},
 				"odx-server.maxHeapSpace": {
 					"type": "string",
 					"default": "1G",
-					"enum": ["512M", "1G","2G","4G"],
+					"enum": [
+						"512M",
+						"1G",
+						"2G",
+						"4G"
+					],
 					"description": "The maximum heap space for the ODX language server (Restart Required!). ",
 					"scope": "application"
 				},
 				"odx-server.trace.server": {
 					"type": "string",
 					"enum": [
-					  "off",
-					  "messages",
-					  "verbose"
+						"off",
+						"messages",
+						"verbose"
 					],
 					"default": "off",
 					"description": "Traces the communication between VS Code and the ODX language server.",
 					"scope": "window"
-				  }
+				}
 			}
 		},
 		"languages": [
 			{
-			  "id": "odx",
-			  "extensions": [".odx",".odx-f",".odx-v",".odx-c",".odx-cs",".odx-d",".odx-e",".odx-fd",".odx-m"],
-			  "configuration": "./syntaxes/odx.language-configuration.json"			  
+				"id": "odx",
+				"extensions": [
+					".odx",
+					".odx-f",
+					".odx-v",
+					".odx-c",
+					".odx-cs",
+					".odx-d",
+					".odx-e",
+					".odx-fd",
+					".odx-m"
+				],
+				"configuration": "./syntaxes/odx.language-configuration.json"
 			}
 		],
 		"grammars": [
 			{
-			  "language": "odx",
-			  "scopeName": "source.odx",
-			  "path": "./syntaxes/odx.tmGrammar.json"
+				"language": "odx",
+				"scopeName": "source.odx",
+				"path": "./syntaxes/odx.tmGrammar.json"
 			}
-		  ]
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile ",
@@ -182,7 +197,7 @@
 		"@types/mocha": "^8.0.0",
 		"@types/node": "^12.11.7",
 		"@types/node-fetch": "^2.5.7",
-		"@types/vscode": "^1.50.0",
+		"@types/vscode": "^1.52.0",
 		"@typescript-eslint/eslint-plugin": "^4.1.1",
 		"@typescript-eslint/parser": "^4.1.1",
 		"css-loader": "^5.0.1",
@@ -202,7 +217,7 @@
 	"dependencies": {
 		"fast-deep-equal": "^3.1.3",
 		"node-fetch": "^2.6.1",
-		"vscode-languageclient": "^6.1.3"
+		"vscode-languageclient": "^7.0.0"
 	},
 	"repository": {
 		"type": "git",
