@@ -55,7 +55,7 @@
 		{
 			"begin": "<[A-Z\\-]+\\-(SN)?REF ",
 			"end": ">",
-			"name": "punctuation.definition.tag.xml"			
+			"name": "punctuation.definition.tag.odx"			
 		},
 		{
 			"include": "#comments"
