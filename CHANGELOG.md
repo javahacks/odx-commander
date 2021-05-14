@@ -1,4 +1,4 @@
-## Unreleased
+## 0.5.0  (Mai 14,2021)
 
 - Hover information for request and response elements
 - Visual improvement for ODX links
