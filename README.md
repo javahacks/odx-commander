@@ -5,7 +5,8 @@
 ## Features
 
 <details open>
-<summary>Hierarchical viewer that shows logical layer structure</summary>
+<summary>Hierarchical viewer that shows logical layer structure
+</summary>
 
 ![ODX Links](./help/layer-demo.gif)
 </details>
@@ -24,13 +25,22 @@
 
 <details>
 <summary>Formatted and simplified read-only view for packed ODX files </summary>
-<br/>For the sake of readability all read-only PDX files are properly formatted and simplified. Unimportant information like admin data, OIDs or namespace prefixes is removed.
+
+
+For the sake of readability all read-only PDX files are properly formatted and simplified. Unimportant information like admin data, OIDs or namespace prefixes is removed.
+
 </details>
 
 <details>
 <summary>Folding ranges based on model semantics in order to leverage fold/unfold commands</summary>
 
 ![ODX Links](./help/folding-ranges.gif)
+</details>
+
+<details>
+<summary>Hover information for certain ODX elements</summary>
+
+![ODX Links](./help/hover-support.gif)
 </details>
 
 ## Getting Started 
