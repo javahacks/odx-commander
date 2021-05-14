@@ -5,8 +5,7 @@
 ## Features
 
 <details open>
-<summary>Hierarchical viewer that shows logical layer structure
-</summary>
+<summary>Hierarchical viewer that shows logical layer structure</summary>
 
 ![ODX Links](./help/layer-demo.gif)
 </details>
@@ -24,11 +23,10 @@
 </details>
 
 <details>
-<summary>Formatted and simplified read-only view for packed ODX files </summary>
-
+<summary>Formatted and simplified read-only view for packed ODX files</summary>
 
 For the sake of readability all read-only PDX files are properly formatted and simplified. Unimportant information like admin data, OIDs or namespace prefixes is removed.
-
+<br>
 </details>
 
 <details>
@@ -47,7 +45,7 @@ For the sake of readability all read-only PDX files are properly formatted and s
 
 Before you can browse any data you have to choose an appropriate ODX data source first. If you intend to browse ODX data sets only, choose indexing a single PDX container. However if you want to edit ODX documents also, choose indexing a folder of upacked ODX files.
 
-> **_NOTE:_**  Error diagnostics for ODX documents is not yet provided. Be careful when editing underlying XML files to avoid erroneous state!
+> **_NOTE:_**  Sophisticated error diagnostics for ODX documents is not yet provided. Be careful when editing underlying XML files to avoid erroneous state!
 
 ### Indexing PDX containers
 
