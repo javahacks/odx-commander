@@ -96,6 +96,11 @@ class LayerDataTreeProvider extends RefreshableBaseNodeProvider {
         const variantPattern = layerDetails.variantPatterns.map(pattern => new DiagnosticElementNode(pattern, this.context));
         children.push(new GroupingNode("Variant Patterns", variantPattern, this.context, 'variant_pattern.svg'));
       }
+      
+      if (layerDetails.dependencies && layerDetails.dependencies.length > 0) {
+        const dependencies = layerDetails.dependencies.map(pattern => new DiagnosticElementNode(pattern, this.context));
+        children.push(new GroupingNode("Dependencies", dependencies, this.context, 'dependencies.svg'));
+      }
 
       return children;
 

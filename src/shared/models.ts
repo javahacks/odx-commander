@@ -21,6 +21,7 @@ export interface DiagnosticElement extends BaseObject {
 export interface LayerDetails {
   services: DiagService[]
   variantPatterns?: DiagnosticElement[]
+  dependencies?: DiagnosticElement[]
 }
 
 export interface StartTagLocation {
