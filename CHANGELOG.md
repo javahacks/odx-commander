@@ -1,5 +1,6 @@
-## Unreleased
+## 0.6.0 (Mai 25,2021)
 
+- Added dependencies information in structured viewer
 - Fixed not part of index message
 
 ## 0.5.0  (Mai 14,2021)
