@@ -1,11 +1,14 @@
 import * as path from 'path';
 import * as vscode from 'vscode';
+import { ProviderResult } from 'vscode';
+import { TreeView } from 'vscode';
 import { Document, DiagnosticElement as DiagnosticElement, BaseObject, DiagService as DiagService } from '../../shared/models';
 import { OdxLspService } from './odx-service';
 
 export function initDiagDataProvider(context: vscode.ExtensionContext, odxService: OdxLspService) {
 
   const diagnosticProviderMap = new Map<string, RefreshableBaseNodeProvider>();
+  const treeViewMap = new Map<string, vscode.TreeView<vscode.TreeItem>>();
 
   diagnosticProviderMap.set('protocol', new LayerDataTreeProvider("protocol", odxService, context));
   diagnosticProviderMap.set('functional_group', new LayerDataTreeProvider("functional_group", odxService, context));
@@ -21,13 +24,21 @@ export function initDiagDataProvider(context: vscode.ExtensionContext, odxServic
   diagnosticProviderMap.set('ecu_config', new CategoryTreeProvider("ecu_config", odxService, context));
   diagnosticProviderMap.set('function_dictionary_spec', new CategoryTreeProvider("function_dictionary_spec", odxService, context));
 
-  diagnosticProviderMap.forEach((value, key) => {
-    vscode.window.registerTreeDataProvider(key, value);
+  diagnosticProviderMap.forEach((value, key) => {    
+    const treeView=vscode.window.createTreeView(key, {
+      treeDataProvider: value
+    });    
+    treeViewMap.set(key,treeView);
   });
 
   //reload visible tree views on model change  
   context.subscriptions.push(vscode.commands.registerCommand("odx.reloadData", () =>    
-    diagnosticProviderMap.forEach((value, key) => value.refresh())
+    diagnosticProviderMap.forEach((value) => value.refresh())
+  ));
+
+  //reveal root elements in treeviews
+  context.subscriptions.push(vscode.commands.registerCommand("odx.revealDocument",(viewerKey,object:Document) =>      
+    treeViewMap.get(viewerKey)?.reveal(new BaseNode(object,context),{expand:1,focus:true})    
   ));
 
 }
@@ -43,6 +54,11 @@ abstract class RefreshableBaseNodeProvider implements vscode.TreeDataProvider<Ba
       return Promise.resolve(element.item.children.map(service => new DiagnosticElementNode(service, this.context)));
     }
     return Promise.resolve([]);
+  }
+
+  public getParent?(element: BaseNode): ProviderResult<BaseNode>{
+    //required for reveal method (not yet fully implemented)
+    return Promise.resolve(null); 
   }
 
   private changeEmitter: vscode.EventEmitter<BaseNode | undefined | null | void> = new vscode.EventEmitter<BaseNode | undefined | null | void>();

@@ -1,7 +1,6 @@
 ## Unreleased
 
-- Added dependencies information in structured viewer
-- Fixed not part of index message
+- Codelens support to reveal layer items in structured ODX view
 
 ## 0.6.0 (Mai 25, 2021)
 
