@@ -1,33 +1,30 @@
 import * as path from 'path';
 import * as vscode from 'vscode';
+import { ProviderResult } from 'vscode';
+import { TreeView } from 'vscode';
 import { Document, DiagnosticElement as DiagnosticElement, BaseObject, DiagService as DiagService } from '../../shared/models';
 import { OdxLspService } from './odx-service';
 
 export function initDiagDataProvider(context: vscode.ExtensionContext, odxService: OdxLspService) {
 
-  const diagnosticProviderMap = new Map<string, RefreshableBaseNodeProvider>();
+  const diagnosticProviderMap = initProviderMap(odxService, context);
 
-  diagnosticProviderMap.set('protocol', new LayerDataTreeProvider("protocol", odxService, context));
-  diagnosticProviderMap.set('functional_group', new LayerDataTreeProvider("functional_group", odxService, context));
-  diagnosticProviderMap.set('shared_data', new LayerDataTreeProvider("shared_data", odxService, context));
-  diagnosticProviderMap.set('base_variant', new LayerDataTreeProvider("base_variant", odxService, context));
-  diagnosticProviderMap.set('ecu_variant', new LayerDataTreeProvider("ecu_variant", odxService, context));
+  context.subscriptions.push(vscode.commands.registerCommand("odx.reloadData", () =>
+    //reload visible tree views on model change  
+    diagnosticProviderMap.forEach((value) => value.refresh())
+  ));
 
-  diagnosticProviderMap.set('flash', new CategoryTreeProvider("flash", odxService, context));
-  diagnosticProviderMap.set('vehicle_info_spec', new CategoryTreeProvider("vehicle_info_spec", odxService, context));
-  diagnosticProviderMap.set('multiple_ecu_job_spec', new CategoryTreeProvider("multiple_ecu_job_spec", odxService, context));
-  diagnosticProviderMap.set('comparam_spec', new CategoryTreeProvider("comparam_spec", odxService, context));
-  diagnosticProviderMap.set('comparam_subset', new CategoryTreeProvider("comparam_subset", odxService, context));
-  diagnosticProviderMap.set('ecu_config', new CategoryTreeProvider("ecu_config", odxService, context));
-  diagnosticProviderMap.set('function_dictionary_spec', new CategoryTreeProvider("function_dictionary_spec", odxService, context));
-
+  const treeViewMap = new Map<string, vscode.TreeView<vscode.TreeItem>>();
   diagnosticProviderMap.forEach((value, key) => {
-    vscode.window.registerTreeDataProvider(key, value);
+    const treeView = vscode.window.createTreeView(key, {
+      treeDataProvider: value
+    });
+    treeViewMap.set(key, treeView);
   });
 
-  //reload visible tree views on model change  
-  context.subscriptions.push(vscode.commands.registerCommand("odx.reloadData", () =>    
-    diagnosticProviderMap.forEach((value, key) => value.refresh())
+  context.subscriptions.push(vscode.commands.registerCommand("odx.revealDocument", (documentType, documentName) =>
+    //reveal root elements in treeviews
+    treeViewMap.get(documentType)?.reveal(new vscode.TreeItem(documentName), { expand: 1, focus: true })
   ));
 
 }
@@ -43,6 +40,11 @@ abstract class RefreshableBaseNodeProvider implements vscode.TreeDataProvider<Ba
       return Promise.resolve(element.item.children.map(service => new DiagnosticElementNode(service, this.context)));
     }
     return Promise.resolve([]);
+  }
+
+  public getParent?(element: BaseNode): ProviderResult<BaseNode> {
+    //required for reveal method (not yet fully implemented)
+    return Promise.resolve(null);
   }
 
   private changeEmitter: vscode.EventEmitter<BaseNode | undefined | null | void> = new vscode.EventEmitter<BaseNode | undefined | null | void>();
@@ -96,7 +98,7 @@ class LayerDataTreeProvider extends RefreshableBaseNodeProvider {
         const variantPattern = layerDetails.variantPatterns.map(pattern => new DiagnosticElementNode(pattern, this.context));
         children.push(new GroupingNode("Variant Patterns", variantPattern, this.context, 'variant_pattern.svg'));
       }
-      
+
       if (layerDetails.dependencies && layerDetails.dependencies.length > 0) {
         const dependencies = layerDetails.dependencies.map(pattern => new DiagnosticElementNode(pattern, this.context));
         children.push(new GroupingNode("Dependencies", dependencies, this.context, 'dependencies.svg'));
@@ -137,6 +139,9 @@ class BaseNode extends vscode.TreeItem {
   }
 }
 
+/**
+ * Root node for all layers and categories
+ */
 class DocumentNode extends BaseNode {
   constructor(public layer: Document, type: string, context: vscode.ExtensionContext) {
     super(layer, context);
@@ -171,4 +176,26 @@ class DiagnosticElementNode extends BaseNode {
       this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'types', `${item.type.toLowerCase()}.svg`));
     }
   }
+}
+
+function initProviderMap(odxService: OdxLspService, context: vscode.ExtensionContext) {
+  const diagnosticProviderMap = new Map<string, RefreshableBaseNodeProvider>();
+
+  //diagnostic data layers
+  diagnosticProviderMap.set('protocol', new LayerDataTreeProvider("protocol", odxService, context));
+  diagnosticProviderMap.set('functional_group', new LayerDataTreeProvider("functional_group", odxService, context));
+  diagnosticProviderMap.set('shared_data', new LayerDataTreeProvider("shared_data", odxService, context));
+  diagnosticProviderMap.set('base_variant', new LayerDataTreeProvider("base_variant", odxService, context));
+  diagnosticProviderMap.set('ecu_variant', new LayerDataTreeProvider("ecu_variant", odxService, context));
+
+  //ODXcategories
+  diagnosticProviderMap.set('flash', new CategoryTreeProvider("flash", odxService, context));
+  diagnosticProviderMap.set('vehicle_info_spec', new CategoryTreeProvider("vehicle_info_spec", odxService, context));
+  diagnosticProviderMap.set('multiple_ecu_job_spec', new CategoryTreeProvider("multiple_ecu_job_spec", odxService, context));
+  diagnosticProviderMap.set('comparam_spec', new CategoryTreeProvider("comparam_spec", odxService, context));
+  diagnosticProviderMap.set('comparam_subset', new CategoryTreeProvider("comparam_subset", odxService, context));
+  diagnosticProviderMap.set('ecu_config', new CategoryTreeProvider("ecu_config", odxService, context));
+  diagnosticProviderMap.set('function_dictionary_spec', new CategoryTreeProvider("function_dictionary_spec", odxService, context));
+
+  return diagnosticProviderMap;
 }
