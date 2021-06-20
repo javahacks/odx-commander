@@ -1,20 +1,20 @@
-## Unreleased
+## 0.7.0 (June 25, 2021)
 
 - Codelens support to reveal layer items in structured ODX view
 - Functional group node is shown for physical links
 
-## 0.6.0 (Mai 25, 2021)
+## 0.6.0 (May 25, 2021)
 
 - Added dependencies information in structured viewer
 - Fixed not part of index message
 
-## 0.5.0  (Mai 14, 2021)
+## 0.5.0  (May 14, 2021)
 
 - Hover information for request and response elements
 - Visual improvement for ODX links
 - Updated LSP implementation
 
-## 0.4.1  (Mai 3, 2021)
+## 0.4.1  (May 3, 2021)
 
 - Semantic folding ranges
 - Fixed XML location for ODX categories
