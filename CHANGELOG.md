@@ -1,6 +1,7 @@
 ## Unreleased
 
 - Codelens support to reveal layer items in structured ODX view
+- Functional group node is shown for physical links
 
 ## 0.6.0 (Mai 25, 2021)
 
