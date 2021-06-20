@@ -1,4 +1,4 @@
-## 0.7.0 (June 25, 2021)
+## 0.7.0 (June 20, 2021)
 
 - Codelens support to reveal layer items in structured ODX view
 - Functional group node is shown for physical links
