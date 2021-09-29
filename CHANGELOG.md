@@ -1,4 +1,3 @@
-
 ## 0.7.1 (September 29, 2021)
 
 - Fixed maximum number of unpacked ODX files 
