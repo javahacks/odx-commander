@@ -116,7 +116,7 @@
 			},
 			{
 				"command": "odx.revealTreeItem",
-				"title": "Show in Naviagtor",
+				"title": "Show in Navigator",
 				"icon": "resources/media/reveal-element.svg"
 			}
 		],
