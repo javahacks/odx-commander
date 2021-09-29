@@ -1,3 +1,9 @@
+## 0.7.1 (September 29, 2021)
+
+- Fixed maximum number of unpacked ODX files 
+- Directly jump to diagnostic layers from within navigator
+- Added not inherited information in navigator
+
 ## 0.7.0 (June 20, 2021)
 
 - Codelens support to reveal layer items in structured ODX view

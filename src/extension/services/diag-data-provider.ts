@@ -23,8 +23,11 @@ export function initDiagDataProvider(context: vscode.ExtensionContext, odxServic
   });
 
   context.subscriptions.push(vscode.commands.registerCommand("odx.revealDocument", (documentType, documentName) =>
-    //reveal root elements in treeviews
     treeViewMap.get(documentType)?.reveal(new vscode.TreeItem(documentName), { expand: 1, focus: true })
+  ));
+
+  context.subscriptions.push(vscode.commands.registerCommand("odx.revealTreeItem", (node: DiagnosticElementNode) =>
+    treeViewMap.get(node.item.type)?.reveal(new vscode.TreeItem(node.item.name), { expand: 1, focus: true })
   ));
 
 }
@@ -95,12 +98,12 @@ class LayerDataTreeProvider extends RefreshableBaseNodeProvider {
         children.push(new GroupingNode("Diagnostic Services", childNodes, this.context, 'service.svg'));
       }
       if (layerDetails.variantPatterns && layerDetails.variantPatterns.length > 0) {
-        const variantPattern = layerDetails.variantPatterns.map(pattern => new DiagnosticElementNode(pattern, this.context));
+        const variantPattern = layerDetails.variantPatterns.map(element => new DiagnosticElementNode(element, this.context));
         children.push(new GroupingNode("Variant Patterns", variantPattern, this.context, 'variant_pattern.svg'));
       }
 
       if (layerDetails.dependencies && layerDetails.dependencies.length > 0) {
-        const dependencies = layerDetails.dependencies.map(pattern => new DiagnosticElementNode(pattern, this.context));
+        const dependencies = layerDetails.dependencies.map(element => new DiagnosticElementNode(element, this.context));
         children.push(new GroupingNode("Dependencies", dependencies, this.context, 'dependencies.svg'));
       }
 
@@ -129,9 +132,12 @@ class CategoryTreeProvider extends RefreshableBaseNodeProvider {
 
 
 class BaseNode extends vscode.TreeItem {
-  constructor(object: BaseObject, context: vscode.ExtensionContext) {
+  constructor(object: BaseObject) {
     super(object.name);
     this.collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
+    if(object.label){
+      this.label = object.label;
+    }
     const location = object.location;
     if (location) {
       this.command = { command: "odx.jumpToLine", title: "Open location", arguments: [location, true] };
@@ -144,7 +150,7 @@ class BaseNode extends vscode.TreeItem {
  */
 class DocumentNode extends BaseNode {
   constructor(public layer: Document, type: string, context: vscode.ExtensionContext) {
-    super(layer, context);
+    super(layer);
     this.collapsibleState = layer.expandable ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None;
     this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'documents', `${type.toLowerCase()}.svg`));
   }
@@ -163,14 +169,15 @@ class GroupingNode extends vscode.TreeItem {
 
 class ServiceNode extends BaseNode {
   constructor(public service: DiagService, context: vscode.ExtensionContext) {
-    super(service, context);
+    super(service);
     this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'types', `${service.type.toLowerCase()}.svg`));
   }
 }
 
 class DiagnosticElementNode extends BaseNode {
   constructor(public item: DiagnosticElement, context: vscode.ExtensionContext) {
-    super(item, context);
+    super(item);    
+    this.contextValue = item.revealable ? "odx.revealable" : undefined;
     this.collapsibleState = item.children && item.children.length > 0 ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None;
     if (item.type) {
       this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'types', `${item.type.toLowerCase()}.svg`));

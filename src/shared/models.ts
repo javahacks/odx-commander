@@ -1,7 +1,8 @@
 export interface BaseObject {
+  label?: string
   name: string;
-  location: StartTagLocation
   type: string
+  location: StartTagLocation
 }
 
 export interface Document extends BaseObject {
@@ -9,13 +10,13 @@ export interface Document extends BaseObject {
   expandable: boolean;
 }
 
-export interface DiagService extends BaseObject {
-  shortName: string;
+export interface DiagService extends BaseObject {  
   odxLink: Reference;
 }
 
 export interface DiagnosticElement extends BaseObject {
-  children?: DiagnosticElement[]
+  children?: DiagnosticElement[] 
+  revealable: boolean
 }
 
 export interface LayerDetails {
@@ -27,7 +28,7 @@ export interface LayerDetails {
 export interface StartTagLocation {
   fileUri: string;
   startLine: number
-  startColumn: number  
+  startColumn: number
 }
 
 export interface Reference {
