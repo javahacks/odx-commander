@@ -1,5 +1,5 @@
 
-## 0.7.1 (October 4, 2021)
+## 0.7.1 (September 29, 2021)
 
 - Fixed maximum number of unpacked ODX files 
 - Directly jump to diagnostic layers from within navigator
