@@ -16,6 +16,7 @@ export interface DiagService extends BaseObject {
 
 export interface DiagnosticElement extends BaseObject {
   children?: DiagnosticElement[]
+  parentName?: string
 }
 
 export interface LayerDetails {

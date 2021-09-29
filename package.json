@@ -113,6 +113,11 @@
 			{
 				"command": "odx.setOdxSource",
 				"title": "Set or Update ODX Index"
+			},
+			{
+				"command": "odx.revealTreeItem",
+				"title": "Show in Naviagtor",
+				"icon": "resources/media/reveal-element.svg"
 			}
 		],
 		"menus": {
@@ -121,6 +126,13 @@
 					"command": "odx.setOdxSource",
 					"when": "explorerResourceIsFolder || resourceFilename =~ /\\.pdx$|\\.odx-?.*$/i",
 					"group": "2_workspace "
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "odx.revealTreeItem",
+					"when": "viewItem == odx.reveal",
+					"group": "inline"
 				}
 			]
 		},
