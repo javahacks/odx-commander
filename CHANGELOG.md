@@ -1,3 +1,7 @@
+## 0.7.1 (xxx, 2021)
+
+- Fixed maximum number of unpacked ODX files 
+
 ## 0.7.0 (June 25, 2021)
 
 - Codelens support to reveal layer items in structured ODX view
