@@ -26,7 +26,7 @@ export function initDiagDataProvider(context: vscode.ExtensionContext, odxServic
     treeViewMap.get(documentType)?.reveal(new vscode.TreeItem(documentName), { expand: 1, focus: true })
   ));
 
-  context.subscriptions.push(vscode.commands.registerCommand("odx.revealTreeItem", (node:DiagnosticElementNode) =>    
+  context.subscriptions.push(vscode.commands.registerCommand("odx.revealTreeItem", (node: DiagnosticElementNode) =>
     treeViewMap.get(node.item.type)?.reveal(new vscode.TreeItem(node.item.name), { expand: 1, focus: true })
   ));
 
@@ -98,12 +98,12 @@ class LayerDataTreeProvider extends RefreshableBaseNodeProvider {
         children.push(new GroupingNode("Diagnostic Services", childNodes, this.context, 'service.svg'));
       }
       if (layerDetails.variantPatterns && layerDetails.variantPatterns.length > 0) {
-        const variantPattern = layerDetails.variantPatterns.map(pattern => new DiagnosticElementNode(pattern, this.context));
+        const variantPattern = layerDetails.variantPatterns.map(element => new DiagnosticElementNode(element, this.context));
         children.push(new GroupingNode("Variant Patterns", variantPattern, this.context, 'variant_pattern.svg'));
       }
 
       if (layerDetails.dependencies && layerDetails.dependencies.length > 0) {
-        const dependencies = layerDetails.dependencies.map(pattern => new DiagnosticElementNode(pattern, this.context));
+        const dependencies = layerDetails.dependencies.map(element => new DiagnosticElementNode(element, this.context));
         children.push(new GroupingNode("Dependencies", dependencies, this.context, 'dependencies.svg'));
       }
 
@@ -135,6 +135,9 @@ class BaseNode extends vscode.TreeItem {
   constructor(object: BaseObject) {
     super(object.name);
     this.collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
+    if(object.label){
+      this.label = object.label;
+    }
     const location = object.location;
     if (location) {
       this.command = { command: "odx.jumpToLine", title: "Open location", arguments: [location, true] };
@@ -173,8 +176,8 @@ class ServiceNode extends BaseNode {
 
 class DiagnosticElementNode extends BaseNode {
   constructor(public item: DiagnosticElement, context: vscode.ExtensionContext) {
-    super(item);
-    this.contextValue =  item.parentName ? "odx.reveal" : "";
+    super(item);    
+    this.contextValue = item.revealable ? "odx.revealable" : undefined;
     this.collapsibleState = item.children && item.children.length > 0 ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None;
     if (item.type) {
       this.iconPath = context.asAbsolutePath(path.join('resources', 'media', 'types', `${item.type.toLowerCase()}.svg`));

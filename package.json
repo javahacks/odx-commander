@@ -131,7 +131,7 @@
 			"view/item/context": [
 				{
 					"command": "odx.revealTreeItem",
-					"when": "viewItem == odx.reveal",
+					"when": "viewItem == odx.revealable",
 					"group": "inline"
 				}
 			]
