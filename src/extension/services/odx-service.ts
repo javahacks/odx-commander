@@ -118,7 +118,7 @@ export class OdxLspService {
                 const command = "java -XX:+UseStringDeduplication -Xmx" + this.getHeapSpaceConfiguration() + " -jar \"" + executablePath + "\" " + port;
                 child_process.exec(command, (error) => {
                     if(error){
-                        vscode.window.showWarningMessage("Failed to start ODX server. Ensure Java 8+ is installed on your system.");                        
+                        vscode.window.showWarningMessage("Failed to start ODX server. Ensure Java 8+ is installed and 'PATH' variable is set accordingly.");                        
                     }
                 });
             });

@@ -1,6 +1,6 @@
 # ODX Commander
 
-[Visual Studio Code](https://code.visualstudio.com/) extension that allows easy to handle navigation through large diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. The extension provides additional views and commands for ODX data browsing in the workbench.
+[Visual Studio Code](https://code.visualstudio.com/) extension that provides additional views and commands to browse diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. 
 
 ## Features
 

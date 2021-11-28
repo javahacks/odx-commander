@@ -1,3 +1,8 @@
+## 0.7.2 (November 28, 2021)
+
+- Shows warning message on missing Java installation
+- Additional short name information for value params in navigator
+
 ## 0.7.1 (September 29, 2021)
 
 - Fixed maximum number of unpacked ODX files 
