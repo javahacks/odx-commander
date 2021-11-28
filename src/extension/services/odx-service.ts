@@ -116,7 +116,11 @@ export class OdxLspService {
             ).listen(0, "127.0.0.1", () => {
                 const port = (server.address() as net.AddressInfo).port;
                 const command = "java -XX:+UseStringDeduplication -Xmx" + this.getHeapSpaceConfiguration() + " -jar \"" + executablePath + "\" " + port;
-                child_process.exec(command, (error, stdout, stderr) => {/** TODO log errors */ });
+                child_process.exec(command, (error) => {
+                    if(error){
+                        vscode.window.showWarningMessage("Failed to start ODX server. Ensure Java 8+ is installed and 'PATH' variable is set accordingly.");                        
+                    }
+                });
             });
         });
     };
