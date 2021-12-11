@@ -3,6 +3,7 @@
 .vscode-test/**
 out/test/**
 src/**
+lsp-server/**
 help/**
 .gitignore
 .yarnrc
