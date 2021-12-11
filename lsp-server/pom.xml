@@ -181,7 +181,7 @@
                         </transformer>
                     </transformers>
 
-                    <outputFile>../vsc-extension/resources/odx-language-server.jar</outputFile>
+                    <outputFile>../resources/odx-language-server.jar</outputFile>
 
                 </configuration>
             </plugin>
