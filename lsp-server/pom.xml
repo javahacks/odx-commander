@@ -114,6 +114,7 @@
                 </executions>
             </plugin>
 
+            <!--No longer required, however shrinks final jar-->
             <plugin>
                 <groupId>com.github.wvengen</groupId>
                 <artifactId>proguard-maven-plugin</artifactId>
@@ -179,6 +180,9 @@
                             <mainClass>com.javahacks.odx.ServerLauncher</mainClass>
                         </transformer>
                     </transformers>
+
+                    <outputFile>../vsc-extension/resources/odx-language-server.jar</outputFile>
+
                 </configuration>
             </plugin>
 
@@ -205,18 +209,5 @@
         </plugins>
     </build>
 
-
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/javahacks/odx-commander</url>
-        </repository>
-        <snapshotRepository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/javahacks/odx-commander</url>
-        </snapshotRepository>
-    </distributionManagement>
 
 </project>
