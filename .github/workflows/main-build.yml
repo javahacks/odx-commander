@@ -44,7 +44,7 @@ jobs:
       with:
         node-version: '14.x'
     - name: Build Vscode Extension
-      working-directory: vsc-extension
+      working-directory: .
       run: |
         npm install -g vsce
         npm install   
@@ -54,4 +54,4 @@ jobs:
       if: github.ref == 'refs/heads/main'
       with:
         name: ODX Commander
-        path: vsc-extension/odx-commander-*.vsix
+        path: odx-commander-*.vsix
