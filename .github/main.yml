@@ -30,6 +30,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
     - name: Build Language Server      
+      working-directory: lsp-server
       run: mvn -B package -s $GITHUB_WORKSPACE/settings.xml     
     - name: Publish Test Report
       uses: scacap/action-surefire-report@v1
