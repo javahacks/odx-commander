@@ -1,3 +1,7 @@
+## 0.8.0 (December 12, 2021)
+
+- Added support for multiple `VS-Code` windows
+
 ## 0.7.2 (November 28, 2021)
 
 - Shows warning message on missing Java installation
