@@ -14,20 +14,18 @@ export class OdxLspService {
 
     constructor(context: vscode.ExtensionContext) {
         this.lspClient = this.startLSP(context);
-        vscode.workspace.onDidChangeConfiguration((event) => {
-            if (event.affectsConfiguration("odx-server.activeIndexLocation")) {
-                this.sendConfigurationChanged();
-            }
-        });
-        this.initNotifications();
+        this.attachListeners();
     }
 
-    private initNotifications() {
+    private attachListeners() {
+        vscode.workspace.onDidChangeConfiguration((event) => {
+            if (vscode.window.state.focused &&
+                event.affectsConfiguration("odx-server.activeIndexLocation")) {
+                this.sendConfigurationChanged();
+            }
+        });        
         this.lspClient.onReady().then(() =>
-            //reload data whenever the global index changed
-            this.lspClient.onNotification("odx/indexChanged", () => {
-                vscode.commands.executeCommand("odx.reloadData");
-            })
+            this.lspClient.onNotification("odx/indexChanged", () => vscode.commands.executeCommand("odx.reloadData"))
         );
     }
 
@@ -117,8 +115,8 @@ export class OdxLspService {
                 const port = (server.address() as net.AddressInfo).port;
                 const command = "java -XX:+UseStringDeduplication -Xmx" + this.getHeapSpaceConfiguration() + " -jar \"" + executablePath + "\" " + port;
                 child_process.exec(command, (error) => {
-                    if(error){
-                        vscode.window.showWarningMessage("Failed to start ODX server. Ensure Java 8+ is installed and 'PATH' variable is set accordingly.");                        
+                    if (error) {
+                        vscode.window.showWarningMessage("Failed to start ODX server. Ensure Java 8+ is installed and 'PATH' variable is set accordingly.");
                     }
                 });
             });
