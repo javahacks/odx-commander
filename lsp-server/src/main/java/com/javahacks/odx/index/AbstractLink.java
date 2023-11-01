@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import java.util.Optional;
 
 /**
- * Base class for all links contained in an document.
+ * Base class for all links contained in a document.
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public abstract class AbstractLink extends AbstractLocationAware {

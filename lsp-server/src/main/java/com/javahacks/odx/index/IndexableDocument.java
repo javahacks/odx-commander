@@ -28,7 +28,10 @@ public abstract class IndexableDocument extends AbstractLinkTarget {
 
     Object getElementByIdInLayers(final String id, final List<Layer> layers) {
         for (final Layer layer : layers) {
-            return layer.getElementById(id);
+            final Object element = layer.getElementById(id);
+            if (element != null) {
+                return element;
+            }
         }
         return null;
     }

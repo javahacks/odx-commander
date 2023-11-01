@@ -34,8 +34,7 @@ public abstract class Category extends IndexableDocument {
 
     @Override
     Object getElementById(final String id) {
-        final Object element = super.getElementById(id);
-        return element;
+        return super.getElementById(id);        
     }
 
     public ODX getParent() {

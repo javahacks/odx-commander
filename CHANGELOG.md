@@ -1,3 +1,9 @@
+## 0.8.1 (November 1, 2023)
+
+- Fixed hyperlink resolution
+- Fixed hyperlinks for logical links
+
+
 ## 0.8.0 (December 12, 2021)
 
 - Added support for multiple `VS-Code` windows
