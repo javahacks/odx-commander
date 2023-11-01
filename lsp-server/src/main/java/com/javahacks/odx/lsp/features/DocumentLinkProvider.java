@@ -36,10 +36,9 @@ public class DocumentLinkProvider {
         final Stream<DocumentLink> snRefStream = getSNRefStream(document);
         final Stream<DocumentLink> dataFileStream = getDataFileStream(document);
 
-        return Streams.concat(odxLinksStream,snRefStream        , dataFileStream)
+        return Streams.concat(odxLinksStream, snRefStream, dataFileStream)
                 .collect(Collectors.toList());
     }
-
 
     private Stream<DocumentLink> getOdxLinksStream(final VirtualDocument document) {
         return document.getVirtualModel().getLocationAwares().stream()
@@ -51,11 +50,12 @@ public class DocumentLinkProvider {
     }
 
     private boolean isVisibleLink(final ODXLINK link) {
-        return link.getLocation().getEndLine() > -1; //links removed in read only view
+        return link.getLocation().getEndLine() > -1; // links removed in read only view
     }
 
     private DocumentLink mapODXLink(final ODXLINK link) {
-        return resolveODXLink(link, AbstractLinkTarget.class).map(target -> createDocumentLink(link.getLocation(), target.getLocation()))
+        return resolveODXLink(link, AbstractLinkTarget.class)
+                .map(target -> createDocumentLink(link.getLocation(), target.getLocation()))
                 .orElse(null);
     }
 
@@ -73,12 +73,15 @@ public class DocumentLinkProvider {
     }
 
     private DocumentLink mapSNRef(final SNREF snRef) {
-        return resolveSnRef((DIAGLAYER) snRef.getDocument(), snRef).map(target -> createDocumentLink(snRef.getLocation(), target.getLocation()))
+        return resolveSnRef((DIAGLAYER) snRef.getDocument(), snRef).map(target -> createDocumentLink(snRef
+                .getLocation(), target.getLocation()))
                 .orElse(null);
     }
 
-    private DocumentLink createDocumentLink(final XmlElementLocation sourceLocation, final XmlElementLocation targetLocation) {
-        return new DocumentLink(locationToSingleLineRange(sourceLocation), createGotoLocationCommand(targetLocation), null, "Goto Definition");
+    private DocumentLink createDocumentLink(final XmlElementLocation sourceLocation,
+            final XmlElementLocation targetLocation) {
+        return new DocumentLink(locationToSingleLineRange(sourceLocation), createGotoLocationCommand(targetLocation),
+                null, "Goto Definition");
     }
 
     private Stream<DocumentLink> getDataFileStream(final VirtualDocument document) {
@@ -105,11 +108,13 @@ public class DocumentLinkProvider {
             return linkPath;
         }
         final Path absolutePath = documentParentPath.resolve(path).normalize();
-        LOGGER.debug("Using '{}' for relative path '{}' and document parent {}", absolutePath, path, documentParentPath);
+        LOGGER.debug("Using '{}' for relative path '{}' and document parent {}", absolutePath, path,
+                documentParentPath);
         return absolutePath;
     }
 
-    private DocumentLink createLink(final LocationAware locationAware, final String value, final Integer data, final String tooltip) {
+    private DocumentLink createLink(final LocationAware locationAware, final String value, final Integer data,
+            final String tooltip) {
         return new DocumentLink(locationToRange(locationAware.getLocation()), value, data, tooltip);
     }
 

@@ -27,7 +27,6 @@ public abstract class Layer extends IndexableDocument implements CategoryAware {
         return query;
     }
 
-
     public List<Layer> getImports() {
         return imports;
     }
@@ -38,19 +37,24 @@ public abstract class Layer extends IndexableDocument implements CategoryAware {
 
     @Override
     Object getElementById(final String id) {
-        // search in container itself
-        final Object defaultElement = super.getElementById(id);
+
+        final Object defaultElement = super.getElementById(id); // search in container itself
         if (defaultElement != null) {
             return defaultElement;
         }
 
-        // search in imported containers
-        final Object importElement = getElementByIdInLayers(id, imports);
+        final Object importElement = getElementByIdInLayers(id, imports); // search in imported containers
         if (importElement != null) {
             return importElement;
         }
-        // finally search in parent containers
-        return getElementByIdInLayers(id, parents);
+
+        final Object parentElement = getElementByIdInLayers(id, parents); // search in parent containers
+        if (parentElement != null) {
+            return parentElement;
+        }
+
+        return getCategory().getElementById(id); // finally search in enclosing category
+
     }
 
     public List<Object> getValueInheritedElements() {
@@ -68,7 +72,7 @@ public abstract class Layer extends IndexableDocument implements CategoryAware {
     }
 
     public boolean isExpandable() {
-        //right now we can only guess whether service is present or not
+        // right now we can only guess whether service is present or not
         return snRefElements.stream().anyMatch(DIAGSERVICE.class::isInstance) ||
                 (this instanceof HIERARCHYELEMENT && !((HIERARCHYELEMENT) this).getParentRefs().isEmpty());
     }
