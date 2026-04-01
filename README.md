@@ -1,112 +1,139 @@
 # ODX Commander
 
-[Visual Studio Code](https://code.visualstudio.com/) extension that provides additional views and commands to browse diagnostic data sets in [ODX](https://www.asam.net/standards/detail/mcd-2-d/) format. 
+ODX Commander is a [Visual Studio Code](https://code.visualstudio.com/) extension for browsing and navigating diagnostic datasets in [ODX (ASAM MCD-2 D)](https://www.asam.net/standards/detail/mcd-2-d/) format.
 
-## Features
+It adds dedicated explorer views, ODX-aware navigation, and language-server-backed editing support for ODX documents.
+
+## Key Features
 
 <details open>
-<summary>Hierarchical viewer that shows logical layer structure</summary>
+<summary>Hierarchical explorer for logical diagnostic layers</summary>
 
-![ODX Links](./help/layer-demo.gif)
+![Layer Explorer](./help/layer-demo.gif)
 </details>
 
 <details>
-<summary>Goto definition support for ODX links</summary>
+<summary>Go to Definition for ODX references</summary>
 
-![ODX Links](./help/odx-links.gif)
+![Go to Definition](./help/odx-links.gif)
 </details>
 
 <details>
 <summary>Basic editing support for unpacked ODX files</summary>
 
-![ODX Links](./help/editing-demo.gif)
+![Editing Support](./help/editing-demo.gif)
 </details>
 
 <details>
-<summary>Formatted and simplified read-only view for packed ODX files</summary>
+<summary>Simplified read-only rendering for packed PDX content</summary>
 
-For the sake of readability all read-only PDX files are properly formatted and simplified. Unimportant information like admin data, OIDs or namespace prefixes is removed.
-<br>
+For readability, packed content is rendered in a formatted and reduced view where less relevant XML details (for example admin metadata, OIDs, and namespace prefixes) are hidden.
 </details>
 
 <details>
-<summary>Folding ranges based on model semantics in order to leverage fold/unfold commands</summary>
+<summary>Semantic folding ranges</summary>
 
-![ODX Links](./help/folding-ranges.gif)
+![Folding Ranges](./help/folding-ranges.gif)
 </details>
 
 <details>
-<summary>Hover information for certain ODX elements</summary>
+<summary>Hover information for selected ODX elements</summary>
 
-![ODX Links](./help/hover-support.gif)
+![Hover Information](./help/hover-support.gif)
 </details>
-
-## Getting Started 
-
-Before you can browse any data you have to choose an appropriate ODX data source first. If you intend to browse ODX data sets only, choose indexing a single PDX container. However if you want to edit ODX documents also, choose indexing a folder of upacked ODX files.
-
-> **_NOTE:_**  Sophisticated error diagnostics for ODX documents is not yet provided. Be careful when editing underlying XML files to avoid erroneous state!
-
-### Indexing PDX containers
-
-Open a folder that contains the PDX file in VS Code and select _**'Set or Update ODX Index'**_ in the context menu of the selected PDX file.
-
-![Diagnostic Layers](./help/select-pdx.png)
-
-### Indexing unpacked ODX files
-
-Open a folder that contains all unpacked ODX files in VS Code and select _**'Set or Update ODX Index'**_ in the context of the selected folder or any contained ODX file.
-
-
-![Diagnostic Layers](./help/select-folder.png)
-
-- Both options above will automatically update the extension configuration _**'Active Index Location'**_ which you can also set in the settings editor directly.
-
-![Diagnostic Layers](./help/configure-location.png)
-
-
-## Diagnostic Layers
-
-The **Diagnostic Layers** container shows layer related information and the appropriate structure for
-
-* Protocols (Purple)
-* Functional Groups (Blue)
-* Shared Data (Red)
-* Base Variants (Yellow)
-* ECU Variants (Green)
-
-Each layer is represented by a distinct color to indicate at which location in the ODX hierarchy a diagnostic element is defined. (e.g. if the request's icon is a yellow square the request is defined in a base variant)
-
-![Diagnostic Layers](./help/layers.png)
-
-## Diagnostic Categories
-
-The **Diagnostic Categories** container shows information for the remaining ODX categories
-
-* Vehicle Informations
-* Comparams
-* Comparam Subsets
-* ECU Config
-* Function Dictionaries
-* ECU Jobs
-* Flash Data
-
-
-### Vehicle Information
-
-**Vehicle Informations** overview lists all available **_VEHICLE-INFO-SPEC_** documents in the current ODX index and highlights most relevant information in a simple tree structure.
-
-![Diagnostic Layers](./help/vi-help.png)
-
-For any logical link that configures communication parametes via **_LINK-COMPARAM-REF_** all that parameters, values and appropriate units are shown. Parameter values that vary from their physical default values are prepended with a warning icon.
-
-For convenience the logical links **_BASE-VARIANT-REF_** target is selectable in the tree.
 
 ## Requirements
 
-Java 8 or higher must be installed on your system.
+- Java 8 or newer must be installed.
+- Visual Studio Code with extension support enabled.
+
+## Quick Start
+
+Choose an ODX source first. You can index either:
+
+- A single packed PDX container (best for browsing).
+- A folder with unpacked ODX files (best for browsing and editing).
+
+### Option 1: Index a PDX file
+
+1. Open a folder that contains your .pdx file.
+2. In the Explorer context menu of that file, run Set or Update ODX Index.
+
+![Select PDX](./help/select-pdx.png)
+
+### Option 2: Index unpacked ODX files
+
+1. Open a folder that contains your unpacked ODX files.
+2. Run Set or Update ODX Index from either:
+	- the root folder, or
+	- any ODX file inside that folder.
+
+![Select Folder](./help/select-folder.png)
+
+Both flows update the Active Index Location setting (odx-server.activeIndexLocation), which you can also change directly in VS Code settings.
+
+![Configure Active Index](./help/configure-location.png)
+
+## Views
+
+### Diagnostic Layers
+
+The Diagnostic Layers view shows the layer hierarchy:
+
+- Protocols
+- Functional Groups
+- Shared Data
+- Base Variants
+- ECU Variants
+
+Each item uses layer-specific coloring to indicate where a diagnostic element is defined in the ODX hierarchy.
+
+![Diagnostic Layers](./help/layers.png)
+
+### Diagnostic Categories
+
+The Diagnostic Categories view includes:
+
+- Vehicle Informations
+- Comparams
+- Comparam Subsets
+- ECU Config
+- Function Dictionary
+- ECU Jobs
+- Flash Data
+
+### Vehicle Informations details
+
+The Vehicle Informations tree lists all VEHICLE-INFO-SPEC documents from the active index and highlights key data in a compact structure.
+
+![Vehicle Informations](./help/vi-help.png)
+
+For logical links using LINK-COMPARAM-REF, related parameters, values, and units are shown. Values that differ from defaults are marked with a warning indicator.
+
+BASE-VARIANT-REF targets are selectable directly from the tree for faster navigation.
+
+## Configuration
+
+The extension exposes these core settings:
+
+- odx-server.activeIndexLocation: Absolute path to the active ODX data source.
+- odx-server.maxHeapSpace: Maximum Java heap for the language server (restart required).
+- odx-server.trace.server: LSP trace level (off, messages, verbose).
+
+## Development
+
+For local development, see README-dev.md.
+
+Quick summary:
+
+1. Open lsp-server as a Maven project.
+2. Run the main class com.javahacks.odx.ServerLauncher.
+3. Run npm install in the repository root.
+4. Open the repository in VS Code and install recommended extensions.
+5. Start the Run Extension launch configuration.
 
 ## Known Issues
 
-Unknown
+- Advanced diagnostics for malformed ODX XML are still limited.
+- Be careful when editing source XML to avoid inconsistent model state.
 
