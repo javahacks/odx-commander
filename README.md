@@ -120,18 +120,6 @@ The extension exposes these core settings:
 - odx-server.maxHeapSpace: Maximum Java heap for the language server (restart required).
 - odx-server.trace.server: LSP trace level (off, messages, verbose).
 
-## Development
-
-For local development, see README-dev.md.
-
-Quick summary:
-
-1. Open lsp-server as a Maven project.
-2. Run the main class com.javahacks.odx.ServerLauncher.
-3. Run npm install in the repository root.
-4. Open the repository in VS Code and install recommended extensions.
-5. Start the Run Extension launch configuration.
-
 ## Known Issues
 
 - Advanced diagnostics for malformed ODX XML are still limited.
